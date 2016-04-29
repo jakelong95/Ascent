@@ -1,0 +1,12 @@
+Alex
+Art
+Animations
+Mechanics
+sous programmer
+Physical Documentation (handbook, etc.)
+
+
+Jake
+Lead programmer
+Programming Design Decisions
+	(Language, libraries, organization, coding styles, etc.)
