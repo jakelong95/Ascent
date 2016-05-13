@@ -16,5 +16,10 @@ public abstract class Attack
 	public final static float COOLDOWN_SUPER_SLOW = 100.0f * COOLDOWN_STANDARD;
 	
 	
-	
+	public final static float DAMAGE_STANDARD = 1.0f;
+	public final static float DAMAGE_BASICALLY_NOTHING = .03f * DAMAGE_STANDARD;
+	public final static float DAMAGE_LOW = .5f * DAMAGE_STANDARD;
+	public final static float HIGH = 2.0f * DAMAGE_STANDARD;
+	public final static float VERY_HIGH = 3.0f * DAMAGE_STANDARD;
+	public final static float MASSIVE = 5.0f * DAMAGE_STANDARD;
 }
