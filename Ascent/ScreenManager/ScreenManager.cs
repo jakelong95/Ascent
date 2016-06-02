@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 enum ScreenState { Active, Shutdown, Hidden }
 
@@ -13,13 +15,7 @@ enum ScreenState { Active, Shutdown, Hidden }
         public static List<BaseScreen> screens = new List<BaseScreen>();
         //Used so we can remove without affecting index numbers
         private static List<BaseScreen> newScreens = new List<BaseScreen>();
-        private Controls control = new Controls();
 
-
-        public ScreenManager()
-        {
-            addScreen(control);
-        }
 
         public void Update(float delta)
         {
@@ -51,12 +47,7 @@ enum ScreenState { Active, Shutdown, Hidden }
             }
             newScreens.Clear();
 
-            //Reset control overlay to top of screen
-            screens.Remove(control);
-            screens.Add(control);
-
-
-            
+   
             //Figure out which screen to focus.
             for (int i = screens.Count - 1; i >= 0; i--)
             {
@@ -71,7 +62,7 @@ enum ScreenState { Active, Shutdown, Hidden }
             foreach (BaseScreen foundScreen in screens)
             {
                 //We can have multiple screens at once.
-                if(Globals.windowFocused)
+               // if(Globals.windowFocused)//TODO find way to check focus.
                 {
                     foundScreen.HandleInput();
                 }
