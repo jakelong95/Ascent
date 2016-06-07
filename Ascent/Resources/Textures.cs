@@ -16,7 +16,7 @@ namespace Ascent.Resources
 
         public static void load(ContentManager content)
         {
-            character = content.Load<Texture2D>("textures/character");
+           // character = content.Load<Texture2D>("textures/character");
         }
     }
 }
