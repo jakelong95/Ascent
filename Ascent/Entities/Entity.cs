@@ -1,13 +1,58 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 namespace Ascent.Entities
 {
-    class Entity
+    abstract class Entity
     {
+		protected float health;
 
+		protected Vector2 position;
+		protected Vector2 velocity;
+
+		protected float rotation;
+		protected float rotationVelocity;
+
+		protected Texture2D texture;
+
+		//Subclasses need to instantiate this and use their own indices
+		protected Attack[] attacks;
+
+		public void Update(GameTime gameTime)
+		{
+			float ms = gameTime.ElapsedGameTime.Milliseconds;
+
+			//Update position
+			position.X += velocity.X * ms;
+			position.Y += velocity.Y * ms;
+
+			//Update rotation
+			rotation += rotationVelocity * ms;
+		}
+
+		public void Draw(SpriteBatch spriteBatch)
+		{
+			spriteBatch.Draw(texture, position, null, null, null, rotation, null, null, SpriteEffects.None, 0f);
+		}
+
+		public bool IsAlive()
+		{
+			return health > 0;
+		}
+
+		public void SetPosition(float x, float y)
+		{
+			position.X = x;
+			position.Y = y;
+		}
+
+		public Vector2 GetPosition()
+		{
+			return position;
+		}
+
+		public void SetVelocity(float x, float y)
+		{
+
+		}
     }
 }
