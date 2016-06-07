@@ -10,6 +10,11 @@ namespace Ascent
     /// </summary>
     public class Game1 : Game
     {
+        public const int GAME_SIZE_X = 800, GAME_SIZE_Y = 600;
+        private ScreenManager screenManager;
+        public static bool shouldExit = false; //Used to exit from menus or the game.
+
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -27,7 +32,13 @@ namespace Ascent
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            this.IsMouseVisible = false;
+            Window.AllowUserResizing = true; //We may regret this later.
+
+            //Now actually set the window to GAME_SIZE
+            graphics.PreferredBackBufferWidth = GAME_SIZE_X;
+            graphics.PreferredBackBufferHeight = GAME_SIZE_Y;
+            graphics.ApplyChanges();
 
             base.Initialize();
         }
@@ -42,7 +53,8 @@ namespace Ascent
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Textures.load(this.Content);
 
-            // TODO: use this.Content to load your game content here
+            screenManager = new ScreenManager();
+            ScreenManager.addScreen(new TitleScreen()); 
         }
 
         /// <summary>
@@ -61,12 +73,16 @@ namespace Ascent
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            Input.Update();
+            var delta = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+
+            if (shouldExit || GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
             // TODO: Add your update logic here
 
             base.Update(gameTime);
+            screenManager.Update(delta);
         }
 
         /// <summary>
@@ -80,6 +96,7 @@ namespace Ascent
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
+            screenManager.Draw();
         }
     }
 }
