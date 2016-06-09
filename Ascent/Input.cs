@@ -22,12 +22,12 @@ public class Input
         currentKeyState = Keyboard.GetState();
     }
 
-    public static Boolean keyDown(Keys key)
+    public static Boolean KeyDown(Keys key)
     {
         return currentKeyState.IsKeyDown(key);
     }
 
-    public static Boolean keyPressed(Keys key)
+    public static Boolean KeyPressed(Keys key)
     {
         if (currentKeyState.IsKeyDown(key) && lastKeyState.IsKeyUp(key))
         {
