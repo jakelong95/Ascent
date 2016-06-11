@@ -9,8 +9,8 @@ namespace Ascent.Entities.Players
 {
     abstract class BaseClass
     {
-        protected abstract string name;
-        protected abstract string description;
-        protected abstract Color classColor;
+        public abstract string name { get; protected set; }
+        public abstract string description { get; protected set; }
+        public abstract Color classColor { get; protected set; }
     }
 }

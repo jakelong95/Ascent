@@ -14,17 +14,17 @@ namespace Ascent
 
     public class Classes
     {
-        public static Dictionary<charClasses, BaseClass> colorMap = new Dictionary<charClasses, BaseClass>();
+        public static Dictionary<charClasses, BaseClass> charMap = new Dictionary<charClasses, BaseClass>();
 
         //Populate the color mapping
         public static void initialize()
         {
-            colorMap.Add(charClasses.CLERIC, new Cleric());
-            colorMap.Add(charClasses.OUTLAW, new Outlaw());
-            colorMap.Add(charClasses.ENGINEER, new Engineer());
-            colorMap.Add(charClasses.PIRATE, new Pirate());
-            colorMap.Add(charClasses.CONVICT, new Convict());
-            colorMap.Add(charClasses.VIGILANTE, new Vigilante());
+            charMap.Add(charClasses.CLERIC, new Cleric());
+            charMap.Add(charClasses.OUTLAW, new Outlaw());
+            charMap.Add(charClasses.ENGINEER, new Engineer());
+            charMap.Add(charClasses.PIRATE, new Pirate());
+            charMap.Add(charClasses.CONVICT, new Convict());
+            charMap.Add(charClasses.VIGILANTE, new Vigilante());
         }
 
     }
