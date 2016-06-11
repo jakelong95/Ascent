@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-
+namespace Ascent.ScreenManager
+{
     abstract class BaseScreen
     {
         public String name;
@@ -27,7 +28,7 @@ using Microsoft.Xna.Framework.Graphics;
 
         public virtual void Draw(SpriteBatch spritebatch)
         {
-            
+
         }
 
         public virtual void Unload()
@@ -36,3 +37,4 @@ using Microsoft.Xna.Framework.Graphics;
         }
 
     }
+}

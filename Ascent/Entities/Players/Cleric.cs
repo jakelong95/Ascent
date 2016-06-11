@@ -12,7 +12,7 @@ namespace Ascent.Entities.Players
         public Cleric()
         {
             name = "Cleric";
-            description = "A support class with several ways to heal and buff allies, as well as rebuke demons."
+            description = "A support class with several ways to heal and buff allies, as well as rebuke demons.";
             classColor = Color.White;
         }
     }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using Ascent.ScreenManager;
 
 namespace Ascent
 {
@@ -29,8 +29,5 @@ namespace Ascent
             //spriteBatch.Draw(gameWinScreen, new Rectangle(0, 0, Game1.GAME_SIZE_X, Game1.GAME_SIZE_Y), Color.White);
             spriteBatch.End();
         }
-    }
-
-
     }
 }

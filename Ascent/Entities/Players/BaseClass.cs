@@ -7,10 +7,30 @@ using Microsoft.Xna.Framework;
 
 namespace Ascent.Entities.Players
 {
-    abstract class BaseClass
+    public abstract class BaseClass
     {
-        public abstract string name { get; protected set; }
-        public abstract string description { get; protected set; }
-        public abstract Color classColor { get; protected set; }
+        protected string name;
+        protected string description;
+        protected Color classColor;
+
+
+
+        //Tried to use getters and setters, 
+        //But struggled with protection levels
+        //And inheritance. So this is what we get.
+        public String getName()
+        {
+            return name;
+        }
+
+        public String getDescription()
+        {
+            return description;
+        }
+
+        public Color getColor()
+        {
+            return classColor;
+        }
     }
 }

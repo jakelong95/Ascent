@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Ascent.ScreenManager;
 
 namespace Ascent
 {
@@ -11,7 +12,7 @@ namespace Ascent
     public class Game1 : Game
     {
         public const int GAME_SIZE_X = 800, GAME_SIZE_Y = 600;
-        private ScreenManager screenManager;
+        private ScreenManager.ScreenManager screenManager;
         public static bool shouldExit = false; //Used to exit from menus or the game.
 
 
@@ -53,8 +54,8 @@ namespace Ascent
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Textures.load(this.Content);
 
-            screenManager = new ScreenManager();
-            ScreenManager.addScreen(new TitleScreen()); 
+            screenManager = new ScreenManager.ScreenManager();
+            ScreenManager.ScreenManager.addScreen(new TitleScreen()); 
         }
 
         /// <summary>

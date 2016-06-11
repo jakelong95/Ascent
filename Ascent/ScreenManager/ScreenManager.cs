@@ -9,7 +9,8 @@ using Microsoft.Xna.Framework.Input;
 
 enum ScreenState { Active, Shutdown, Hidden }
 
-    
+namespace Ascent.ScreenManager
+{
     class ScreenManager
     {
         public static List<BaseScreen> screens = new List<BaseScreen>();
@@ -22,7 +23,7 @@ enum ScreenState { Active, Shutdown, Hidden }
             //Generate list of dead screens for removal
             List<BaseScreen> removeScreens = new List<BaseScreen>();
 
-            foreach(BaseScreen foundScreen in screens)
+            foreach (BaseScreen foundScreen in screens)
             {
                 if (foundScreen.state == ScreenState.Shutdown)
                 {
@@ -47,7 +48,7 @@ enum ScreenState { Active, Shutdown, Hidden }
             }
             newScreens.Clear();
 
-   
+
             //Figure out which screen to focus.
             for (int i = screens.Count - 1; i >= 0; i--)
             {
@@ -62,7 +63,7 @@ enum ScreenState { Active, Shutdown, Hidden }
             foreach (BaseScreen foundScreen in screens)
             {
                 //We can have multiple screens at once.
-               // if(Globals.windowFocused)//TODO find way to check focus.
+                // if(Globals.windowFocused)//TODO find way to check focus.
                 {
                     foundScreen.HandleInput();
                 }
@@ -73,7 +74,7 @@ enum ScreenState { Active, Shutdown, Hidden }
 
         public void Draw(SpriteBatch spritebatch)
         {
-            foreach(BaseScreen foundScreen in screens)
+            foreach (BaseScreen foundScreen in screens)
             {
                 if (foundScreen.state == ScreenState.Active)
                 {
@@ -104,3 +105,4 @@ enum ScreenState { Active, Shutdown, Hidden }
 
 
     }
+}

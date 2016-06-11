@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Ascent.ScreenManager;
 
     class TitleScreen : BaseScreen
     {
@@ -15,7 +16,7 @@ using Microsoft.Xna.Framework.Input;
             state = ScreenState.Active;
         }
 
-        public override void Draw()
+        public override void Draw(SpriteBatch spriteBatch)
         {
             //Globals.spriteBatch.Begin();
 
@@ -34,7 +35,7 @@ using Microsoft.Xna.Framework.Input;
 
         public override void HandleInput()
         {
-            if(Input.keyPressed(Keys.Enter))
+            if(Input.KeyPressed(Keys.Enter))
             {
                 ScreenManager.unloadScreen("TitleScreen");
               //  ScreenManager.addScreen(new MainMenu());

@@ -12,7 +12,7 @@ namespace Ascent.Entities.Players
         public Convict()
         {
             name = "Convict";
-            description = "A tank class that can take massive amounts of damage and still stand."
+            description = "A tank class that can take massive amounts of damage and still stand.";
             classColor = Color.Orange;
         }
     }

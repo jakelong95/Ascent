@@ -12,7 +12,7 @@ namespace Ascent.Entities.Players
         public Pirate()
         {
             name = "Pirate";
-            description = "A multi-target damage-dealing class. Deals small amounts of damage to several foes."
+            description = "A multi-target damage-dealing class. Deals small amounts of damage to several foes.";
             classColor = Color.Purple;
         }
     }

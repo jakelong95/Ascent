@@ -12,7 +12,7 @@ namespace Ascent.Entities.Players
         public Outlaw()
         {
             name = "Outlaw";
-            description = "A damage-dealing class with short cooldowns and heavy attacks."
+            description = "A damage-dealing class with short cooldowns and heavy attacks.";
             classColor = Color.Red;
         }
     }
