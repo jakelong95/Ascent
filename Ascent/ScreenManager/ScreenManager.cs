@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-enum ScreenState { Active, Shutdown, Hidden }
+public enum ScreenState { Active, Shutdown, Hidden }
 
 namespace Ascent.ScreenManager
 {

@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Ascent.ScreenManager
 {
-    abstract class BaseScreen
+    public abstract class BaseScreen
     {
         public String name;
         public ScreenState state;

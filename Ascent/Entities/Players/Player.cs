@@ -6,6 +6,11 @@ namespace Ascent.Entities.Players
 	{
         //Do players need a classcolor?
         //It would always be equal to playerClass.getColor();
-        BaseClass playerClass;
+       public BaseClass playerClass { get; set; }
+
+        public Player()
+       {
+
+       }
 	}
 }

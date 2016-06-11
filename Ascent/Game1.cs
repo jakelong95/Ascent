@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Ascent.ScreenManager;
+using Ascent.ScreenManager.Screens;
 
 namespace Ascent
 {
@@ -41,6 +42,8 @@ namespace Ascent
             graphics.PreferredBackBufferHeight = GAME_SIZE_Y;
             graphics.ApplyChanges();
 
+            Classes.initialize();
+
             base.Initialize();
         }
 
@@ -55,7 +58,7 @@ namespace Ascent
             Textures.load(this.Content);
 
             screenManager = new ScreenManager.ScreenManager();
-            ScreenManager.ScreenManager.addScreen(new TitleScreen()); 
+            ScreenManager.ScreenManager.addScreen(new CharacterSelectionScreen()); 
         }
 
         /// <summary>
