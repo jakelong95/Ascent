@@ -71,13 +71,13 @@ enum ScreenState { Active, Shutdown, Hidden }
             return;
         }//Update
 
-        public void Draw()
+        public void Draw(SpriteBatch spritebatch)
         {
             foreach(BaseScreen foundScreen in screens)
             {
                 if (foundScreen.state == ScreenState.Active)
                 {
-                    foundScreen.Draw();
+                    foundScreen.Draw(spritebatch);
                 }
             }
             return;

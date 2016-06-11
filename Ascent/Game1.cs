@@ -96,7 +96,7 @@ namespace Ascent
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
-            screenManager.Draw();
+            screenManager.Draw(spriteBatch);
         }
     }
 }

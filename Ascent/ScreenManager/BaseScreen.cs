@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
 
     abstract class BaseScreen
     {
@@ -22,7 +25,7 @@ using System.Threading.Tasks;
 
         }
 
-        public virtual void Draw()
+        public virtual void Draw(SpriteBatch spritebatch)
         {
             
         }
