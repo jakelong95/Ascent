@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Ascent.Entities.Players;
 
 
 namespace Ascent
@@ -13,17 +14,17 @@ namespace Ascent
 
     public class Classes
     {
-        public static Dictionary<charClasses, Color> colorMap = new Dictionary<charClasses, Color>();
+        public static Dictionary<charClasses, BaseClass> colorMap = new Dictionary<charClasses, BaseClass>();
 
         //Populate the color mapping
         public static void initialize()
         {
-            colorMap.Add(charClasses.CLERIC, Color.White);
-            colorMap.Add(charClasses.OUTLAW, Color.Red);
-            colorMap.Add(charClasses.ENGINEER, Color.LawnGreen);
-            colorMap.Add(charClasses.PIRATE, Color.Purple);
-            colorMap.Add(charClasses.CONVICT, Color.Orange);
-            colorMap.Add(charClasses.VIGILANTE, Color.Blue);
+            colorMap.Add(charClasses.CLERIC, new Cleric());
+            colorMap.Add(charClasses.OUTLAW, new Outlaw());
+            colorMap.Add(charClasses.ENGINEER, new Engineer());
+            colorMap.Add(charClasses.PIRATE, new Pirate());
+            colorMap.Add(charClasses.CONVICT, new Convict());
+            colorMap.Add(charClasses.VIGILANTE, new Vigilante());
         }
 
     }
