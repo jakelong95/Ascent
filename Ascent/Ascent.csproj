@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -45,6 +45,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Attack.cs" />
+    <Compile Include="Classes.cs" />
+    <Compile Include="Entities\Players\BaseClass.cs" />
+    <Compile Include="Entities\Players\Vigilante.cs" />
+    <Compile Include="Entities\Players\Convict.cs" />
+    <Compile Include="Entities\Players\Pirate.cs" />
+    <Compile Include="Entities\Players\Engineer.cs" />
+    <Compile Include="Entities\Players\Outlaw.cs" />
+    <Compile Include="Entities\Players\Cleric.cs" />
+    <Compile Include="ScreenManager\Screens\CharacterSelectionScreen.cs" />
+    <Compile Include="ScreenManager\Screens\DirectConnectScreen.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\Players\Player.cs" />
     <Compile Include="Game1.cs" />
@@ -55,6 +65,7 @@
     <Compile Include="ScreenManager\BaseScreen.cs" />
     <Compile Include="ScreenManager\ScreenManager.cs" />
     <Compile Include="ScreenManager\Screens\TitleScreen.cs" />
+    <Compile Include="Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
