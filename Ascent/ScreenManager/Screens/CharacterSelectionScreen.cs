@@ -29,14 +29,17 @@ namespace Ascent.ScreenManager.Screens
 
             public override void Draw(SpriteBatch spritebatch)
             {
-                //Todo: draw a circle colored charmap.get(charSel).getColor()
                 spritebatch.Begin();
                 //TODO: How do I know screen size locations?
+
+                spritebatch.DrawString(Fonts.centaur10, tempPlayer.playerClass.getName(), new Vector2(282 - Fonts.centaur10.MeasureString(tempPlayer.playerClass.getName()).X / 2, 200), Color.White);
+                spritebatch.DrawString(Fonts.centaur10, tempPlayer.playerClass.getDescription(), new Vector2(282 - Fonts.centaur10.MeasureString(tempPlayer.playerClass.getDescription()).X / 2, 320), Color.White);
+
+                spritebatch.Draw(Textures.leftArrow, new Rectangle(180, 250, 64, 64), Color.White);
+                spritebatch.Draw(Textures.rightArrow, new Rectangle(320, 250, 64, 64), Color.White);
                 spritebatch.Draw(Textures.playerCircle, new Rectangle(250, 250, 64, 64), tempPlayer.playerClass.getColor());
                 spritebatch.End();
 
-               
-                //TODO: draw our left and right arrows
             }
 
             public override void Update(float delta)

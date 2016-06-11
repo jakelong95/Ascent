@@ -13,7 +13,7 @@ namespace Ascent.Entities.Players
         {
             name = "Vigilante";
             description = "A crowd control class. Deals status effects and minimal damage to several targets at once.";
-            classColor = Color.BlueViolet;
+            classColor = Color.CadetBlue;
         }
     }
 }

@@ -53,6 +53,7 @@
     <Compile Include="Entities\Players\Engineer.cs" />
     <Compile Include="Entities\Players\Outlaw.cs" />
     <Compile Include="Entities\Players\Cleric.cs" />
+    <Compile Include="Resources\Fonts.cs" />
     <Compile Include="ScreenManager\Screens\CharacterSelectionScreen.cs" />
     <Compile Include="ScreenManager\Screens\DirectConnectScreen.cs" />
     <Compile Include="Entities\Entity.cs" />

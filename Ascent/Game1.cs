@@ -56,6 +56,7 @@ namespace Ascent
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Textures.load(this.Content);
+            Fonts.load(this.Content);
 
             screenManager = new ScreenManager.ScreenManager();
             ScreenManager.ScreenManager.addScreen(new CharacterSelectionScreen()); 
