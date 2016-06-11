@@ -36,4 +36,28 @@ public class Input
         return false;
     }
 
+    public static String keysEntered()
+    {
+        StringBuilder sb = new StringBuilder();
+        Keys[] keys = currentKeyState.GetPressedKeys();
+        foreach(Keys key in keys)
+        {
+            //Warning: Keys.Back should not be hardcoded.
+            if(lastKeyState.IsKeyUp(key) && key != Keys.Back)
+            {
+                if(Keys.OemPeriod == key)
+                {
+                    sb.Append('.');
+                }
+                else if(Char.IsNumber((char)key))
+                {
+                        sb.Append((char)key);
+                }
+                
+            }   
+        }
+
+        return sb.ToString();
+    }
+
 }

@@ -67,3 +67,15 @@
 /processorParam:TextureFormat=Compressed
 /build:fonts/Centaur_10.spritefont
 
+#begin fonts/Georgia_16.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:TextureFormat=Compressed
+/build:fonts/Georgia_16.spritefont
+
+#begin fonts/Georgia_16_Bold.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:TextureFormat=Compressed
+/build:fonts/Georgia_16_Bold.spritefont
+

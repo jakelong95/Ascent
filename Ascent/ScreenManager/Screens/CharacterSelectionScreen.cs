@@ -19,6 +19,9 @@ namespace Ascent.ScreenManager.Screens
         Player tempPlayer = new Player();
         BaseClass tempClass; //Used to store current selected class (out variable).
 
+        Color leftCol = Color.White;
+        Color rightCol = Color.White;
+
             public CharacterSelectionScreen()
             {
                 name = "CharacterSelectionScreen";
@@ -35,34 +38,50 @@ namespace Ascent.ScreenManager.Screens
                 spritebatch.DrawString(Fonts.centaur10, tempPlayer.playerClass.getName(), new Vector2(282 - Fonts.centaur10.MeasureString(tempPlayer.playerClass.getName()).X / 2, 200), Color.White);
                 spritebatch.DrawString(Fonts.centaur10, tempPlayer.playerClass.getDescription(), new Vector2(282 - Fonts.centaur10.MeasureString(tempPlayer.playerClass.getDescription()).X / 2, 320), Color.White);
 
-                spritebatch.Draw(Textures.leftArrow, new Rectangle(180, 250, 64, 64), Color.White);
-                spritebatch.Draw(Textures.rightArrow, new Rectangle(320, 250, 64, 64), Color.White);
+                spritebatch.Draw(Textures.leftArrow, new Rectangle(180, 250, 64, 64), leftCol);
+                spritebatch.Draw(Textures.rightArrow, new Rectangle(320, 250, 64, 64), rightCol);
                 spritebatch.Draw(Textures.playerCircle, new Rectangle(250, 250, 64, 64), tempPlayer.playerClass.getColor());
                 spritebatch.End();
+                resetInputs();
 
             }
 
             public override void Update(float delta)
             {
-                
+
             }
 
             public override void HandleInput()
             {
+                //Debug switch to Direct Connect
+                if (Input.KeyPressed(Keys.F7))
+                {
+                    ScreenManager.unloadScreen(name);
+                   ScreenManager.addScreen(new DirectConnectScreen());
+                }
+
                 //TODO or if I click on the left arrow?
                 if (Input.KeyPressed(Keys.Left))
                 {
                     classSel = (charClasses)Utilities.nextSmallestEnum(typeof(charClasses), (int)classSel);
+                    leftCol = Color.Red;
                 }
                 else if (Input.KeyPressed(Keys.Right))
                 {
                     classSel = (charClasses)Utilities.nextGreatestEnum(typeof(charClasses), (int)classSel);
+                    rightCol = Color.Red;
                 }
                 
 
                 Classes.charMap.TryGetValue(classSel, out tempClass);
                 tempPlayer.playerClass = tempClass;
             }
+
+        private void resetInputs()
+        {
+            leftCol = Color.White;
+            rightCol = Color.White;
+        }
 
     }
 }

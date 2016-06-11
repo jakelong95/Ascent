@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Ascent.ScreenManager;
+using Microsoft.Xna.Framework.Input;
+using Ascent.Resources;
 
 namespace Ascent
 {
     class DirectConnectScreen : BaseScreen
     {
+        private string ip = "";
+        bool connecting = false;
+
         public DirectConnectScreen()
         {
             name = "DirectConnectScreen";
@@ -26,8 +31,40 @@ namespace Ascent
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
+            spriteBatch.DrawString(Fonts.georgia16, ip, new Vector2(200, 200), Color.White);
             //spriteBatch.Draw(gameWinScreen, new Rectangle(0, 0, Game1.GAME_SIZE_X, Game1.GAME_SIZE_Y), Color.White);
+            if(connecting)
+            {
+                spriteBatch.DrawString(Fonts.georgia16, "Connecting", new Vector2(200, 400), Color.White);
+            }
             spriteBatch.End();
+        }
+
+        public override void HandleInput()
+        {
+            if(!connecting)
+            {
+                //Debug switch to character selection
+                if (Input.KeyPressed(Keys.F7))
+                {
+                    ScreenManager.ScreenManager.unloadScreen(name);
+                    ScreenManager.ScreenManager.addScreen(new ScreenManager.Screens.CharacterSelectionScreen());
+                }
+                if (Input.KeyPressed(Keys.Back))
+                {
+                    ip = "";
+                }
+                ip += Input.keysEntered();
+                if(Input.KeyPressed(Keys.Enter))
+                {
+                    makeConnection();
+                }
+            }
+
+        }
+        public void makeConnection()
+        {
+            connecting = true;
         }
     }
 }
