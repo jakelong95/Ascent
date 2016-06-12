@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Ascent.ScreenManager;
 using Microsoft.Xna.Framework.Input;
 using Ascent.Resources;
+using Lidgren.Network;
 
 namespace Ascent.ScreenManager.Screens
 {
@@ -66,6 +67,10 @@ namespace Ascent.ScreenManager.Screens
         public void makeConnection()
         {
             connecting = true;
+            var config = new NetPeerConfiguration("Ascent");
+            var client = new NetClient(config);
+            client.Start();
+            client.Connect(host: ip, port: 12345);
         }
     }
 }

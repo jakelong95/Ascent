@@ -24,6 +24,7 @@ namespace Ascent.ScreenManager.Screens
             name = "MultiplayerHostScreen";
             state = ScreenState.Active;
             findIP();
+            MakeConnection();
         }
 
           public override void Update(float delta)
@@ -61,7 +62,7 @@ namespace Ascent.ScreenManager.Screens
 
         public void MakeConnection()
         {
-            var config = new NetPeerConfiguration("application name") { Port = 12345 };
+            var config = new NetPeerConfiguration("Ascent") { Port = 12345 };
             var server = new NetServer(config);
             server.Start();
         }
