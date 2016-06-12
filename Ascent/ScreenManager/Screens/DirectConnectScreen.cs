@@ -12,11 +12,14 @@ using Lidgren.Network;
 
 namespace Ascent.ScreenManager.Screens
 {
+    //Netowrking based on http://xnacoding.blogspot.com/2010/07/how-to-lidgren-network.html
+    //And http://genericgamedev.com/tutorials/lidgren-network-an-introduction-to-networking-in-csharp-games/
     class DirectConnectScreen : BaseScreen
     {
         private string ip = "";
         bool connecting = false;
         NetClient client;
+        bool readyConnect = false;
 
         public DirectConnectScreen()
         {
@@ -26,8 +29,12 @@ namespace Ascent.ScreenManager.Screens
 
         public override void Update(float delta)
         {
-            GetInputAndSendItToServer();
-            CheckServerMessages();
+            if (readyConnect)
+            {
+                GetInputAndSendItToServer();
+                CheckServerMessages();
+            }
+           
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -69,6 +76,7 @@ namespace Ascent.ScreenManager.Screens
         //The amount of error checking here is approximately none.
         public void makeConnection()
         {
+            readyConnect = true;
             connecting = true;
             var config = new NetPeerConfiguration("Ascent");
             client = new NetClient(config);
@@ -76,7 +84,7 @@ namespace Ascent.ScreenManager.Screens
 
             client.Start();
             outmsg.Write((byte)PacketTypes.LOGIN);
-            outmsg.Write("Connection Test");
+            //outmsg.Write("Connection Test");
 
             client.Connect(ip, 12345, outmsg);
 
@@ -121,7 +129,9 @@ namespace Ascent.ScreenManager.Screens
                                 int count = 0;
 
                                 // Read int
-                                count = inc.ReadInt32();
+                                //count = inc.ReadInt32();
+                                //IT IS IMPERITIVE THAT OUR READS MATCH OUR WRITES.
+
                                 //We'll need to develop our own protocol here.
                                 //It seems like they send a WORLDSTATE byte, 
                                 //Followed by the number of players, Then the
@@ -191,9 +201,9 @@ namespace Ascent.ScreenManager.Screens
             // Readkey ( NOTE: This normally stops the code flow. Thats why we have timer running, that gets updates)
             // ( Timers run in different threads, so that can be run, even though we sit here and wait for input )
             //Except I got rid of the timer. So can we async this or move it to a different thread?
-            ConsoleKeyInfo kinfo = Console.ReadKey();
+            //ConsoleKeyInfo kinfo = Console.ReadKey();
 
-            if (kinfo.KeyChar == 'q')
+           // if (kinfo.KeyChar == 'q')
             {
 
                 // Disconnect and give the reason
@@ -207,6 +217,7 @@ namespace Ascent.ScreenManager.Screens
             //    // Create new message
                 NetOutgoingMessage outmsg = client.CreateMessage();
 
+                //outmsg.Write((byte)'a');
                 // Write byte = Set "MOVE" as packet type
               //  outmsg.Write((byte)PacketTypes.MOVE);
 

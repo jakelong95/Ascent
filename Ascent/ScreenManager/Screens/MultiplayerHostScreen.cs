@@ -27,11 +27,14 @@ namespace Ascent.ScreenManager.Screens
     //We'll almost certainly want to change to unreliable, if nothing else.
     class MultiplayerHostScreen : BaseScreen
     {
+        string dataReceived;
         string localIP;
         NetServer server;
         NetIncomingMessage inc; //Store and read msg
         DateTime time = DateTime.Now;
         TimeSpan timetopass = new TimeSpan(0, 0, 0, 0, 30); // Create timespan of 30ms
+        bool connInit = false;
+        string connected = "";
 
         public MultiplayerHostScreen()
         {
@@ -46,6 +49,15 @@ namespace Ascent.ScreenManager.Screens
               // Server.ReadMessage() Returns new messages, that have not yet been read.
                 if ((inc = server.ReadMessage()) != null)
                 {
+                    if (!connInit && inc.MessageType != NetIncomingMessageType.DebugMessage)
+                    {
+                        //Intialize with OK message
+                        NetOutgoingMessage outmsg = server.CreateMessage();
+                        outmsg.Write((byte)PacketTypes.WORLDSTATE);
+                        server.SendMessage(outmsg, inc.SenderConnection, NetDeliveryMethod.ReliableOrdered, 0);
+                        connInit = true;
+                    }
+
                     switch (inc.MessageType)
                     {
                         // If incoming message is Request for connection approval
@@ -58,7 +70,7 @@ namespace Ascent.ScreenManager.Screens
                             if (inc.ReadByte() == (byte)PacketTypes.LOGIN)
                             {
                                 inc.SenderConnection.Approve();
-								
+                                connected = "Connected successfully!";
 								//TODO: add the other person's cahracter to our world.
 								
                                 // Create message, that can be written and sent
@@ -98,7 +110,11 @@ namespace Ascent.ScreenManager.Screens
 
                                     // Read next byte
                                     byte b = inc.ReadByte();
-                                    
+                                   //dataReceived += b.ToString();
+
+                                   // char c = (char)inc.ReadByte();
+                                   // dataReceived += c;    
+
                                     // Handle movement. This byte should correspond to some direction
                                         //We probably want to do this by giving the dest path and doing
                                         //pathfinding on our end. In theory, our PF algorithm should be pure
@@ -179,6 +195,8 @@ namespace Ascent.ScreenManager.Screens
             spriteBatch.Begin();
             spriteBatch.DrawString(Fonts.georgia16, "Connection Host Screen", new Vector2(250, 10), Color.White);
             spriteBatch.DrawString(Fonts.georgia16, "Your IP address is: " + localIP, new Vector2(200, 200), Color.White);
+            spriteBatch.DrawString(Fonts.georgia16, "Data received: " + dataReceived, new Vector2(200, 350), Color.White);
+            spriteBatch.DrawString(Fonts.georgia16, connected, new Vector2(230, 370), Color.White);
             //spriteBatch.Draw(gameWinScreen, new Rectangle(0, 0, Game1.GAME_SIZE_X, Game1.GAME_SIZE_Y), Color.White);
 
             spriteBatch.End();
