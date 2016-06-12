@@ -30,18 +30,20 @@ namespace Ascent.ScreenManager.Screens
                 tempPlayer.playerClass = tempClass;
             }
 
-            public override void Draw(SpriteBatch spritebatch)
+            public override void Draw(SpriteBatch spriteBatch)
             {
-                spritebatch.Begin();
+                spriteBatch.Begin();
                 //TODO: How do I know screen size locations?
+                spriteBatch.DrawString(Fonts.georgia16, "Character Creation Screen", new Vector2(250, 10), Color.White);
 
-                spritebatch.DrawString(Fonts.centaur10, tempPlayer.playerClass.getName(), new Vector2(282 - Fonts.centaur10.MeasureString(tempPlayer.playerClass.getName()).X / 2, 200), Color.White);
-                spritebatch.DrawString(Fonts.centaur10, tempPlayer.playerClass.getDescription(), new Vector2(282 - Fonts.centaur10.MeasureString(tempPlayer.playerClass.getDescription()).X / 2, 320), Color.White);
 
-                spritebatch.Draw(Textures.leftArrow, new Rectangle(180, 250, 64, 64), leftCol);
-                spritebatch.Draw(Textures.rightArrow, new Rectangle(320, 250, 64, 64), rightCol);
-                spritebatch.Draw(Textures.playerCircle, new Rectangle(250, 250, 64, 64), tempPlayer.playerClass.getColor());
-                spritebatch.End();
+                spriteBatch.DrawString(Fonts.centaur10, tempPlayer.playerClass.getName(), new Vector2(282 - Fonts.centaur10.MeasureString(tempPlayer.playerClass.getName()).X / 2, 200), Color.White);
+                spriteBatch.DrawString(Fonts.centaur10, tempPlayer.playerClass.getDescription(), new Vector2(282 - Fonts.centaur10.MeasureString(tempPlayer.playerClass.getDescription()).X / 2, 320), Color.White);
+                      
+                spriteBatch.Draw(Textures.leftArrow, new Rectangle(180, 250, 64, 64), leftCol);
+                spriteBatch.Draw(Textures.rightArrow, new Rectangle(320, 250, 64, 64), rightCol);
+                spriteBatch.Draw(Textures.playerCircle, new Rectangle(250, 250, 64, 64), tempPlayer.playerClass.getColor());
+                spriteBatch.End();
                 resetInputs();
 
             }

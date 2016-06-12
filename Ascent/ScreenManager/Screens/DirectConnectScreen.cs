@@ -9,7 +9,7 @@ using Ascent.ScreenManager;
 using Microsoft.Xna.Framework.Input;
 using Ascent.Resources;
 
-namespace Ascent
+namespace Ascent.ScreenManager.Screens
 {
     class DirectConnectScreen : BaseScreen
     {
@@ -31,6 +31,7 @@ namespace Ascent
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
+            spriteBatch.DrawString(Fonts.georgia16, "Connection Client Screen", new Vector2(250, 10), Color.White);
             spriteBatch.DrawString(Fonts.georgia16, ip, new Vector2(200, 200), Color.White);
             //spriteBatch.Draw(gameWinScreen, new Rectangle(0, 0, Game1.GAME_SIZE_X, Game1.GAME_SIZE_Y), Color.White);
             if(connecting)
@@ -47,8 +48,8 @@ namespace Ascent
                 //Debug switch to character selection
                 if (Input.KeyPressed(Keys.F7))
                 {
-                    ScreenManager.ScreenManager.unloadScreen(name);
-                    ScreenManager.ScreenManager.addScreen(new ScreenManager.Screens.CharacterSelectionScreen());
+                    ScreenManager.unloadScreen(name);
+                    ScreenManager.addScreen(new MultiplayerHostScreen());
                 }
                 if (Input.KeyPressed(Keys.Back))
                 {
