@@ -24,6 +24,7 @@ namespace Ascent.ScreenManager.Screens
 {
     //Much of this networking code was taken from other sources and modified.
     //I chose commenting over deletion as many of the concepts will apply to us.
+    //We'll almost certainly want to change to unreliable, if nothing else.
     class MultiplayerHostScreen : BaseScreen
     {
         string localIP;
