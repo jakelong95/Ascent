@@ -41,6 +41,7 @@ namespace Ascent.ScreenManager.Screens
             ms = Mouse.GetState();
         if (ms.LeftButton == ButtonState.Pressed
             && prevState.LeftButton == ButtonState.Released){
+            //But we forreal need to restruct this to the screen, and it would be nice if I could have my isactive back
            // && this.IsActive //We removed this. Can we have it back.
            // && ms.X >= 0 && ms.X < graphics.PreferredBackBufferWidth //Still don't konw how to access this.
          //   && ms.Y >= 0 && ms.Y < graphics.PreferredBackBufferHeight
