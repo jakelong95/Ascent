@@ -16,7 +16,7 @@ namespace Ascent.ScreenManager.Screens
     {
 
         charClasses classSel = charClasses.CLERIC;
-        Player tempPlayer = new Player();
+        public static Player tempPlayer = new Player(); //The public static part of this is for debug only
         BaseClass tempClass; //Used to store current selected class (out variable).
 
         Color leftCol = Color.White;
@@ -28,6 +28,7 @@ namespace Ascent.ScreenManager.Screens
                 state = ScreenState.Active;
                 Classes.charMap.TryGetValue(classSel, out tempClass);
                 tempPlayer.playerClass = tempClass;
+                tempPlayer.SetPosition(250, 250);//TODO DEBUG REMOVE
             }
 
             public override void Draw(SpriteBatch spriteBatch)
@@ -42,7 +43,7 @@ namespace Ascent.ScreenManager.Screens
                       
                 spriteBatch.Draw(Textures.leftArrow, new Rectangle(180, 250, 64, 64), leftCol);
                 spriteBatch.Draw(Textures.rightArrow, new Rectangle(320, 250, 64, 64), rightCol);
-                spriteBatch.Draw(Textures.playerCircle, new Rectangle(250, 250, 64, 64), tempPlayer.playerClass.getColor());
+                spriteBatch.Draw(Textures.playerCircle, new Rectangle((int)tempPlayer.GetPosition().X, (int)tempPlayer.GetPosition().Y, (int)tempPlayer.GetSize().X, (int)tempPlayer.GetSize().Y), tempPlayer.playerClass.getColor());
                 spriteBatch.End();
                 resetInputs();
 
@@ -59,7 +60,7 @@ namespace Ascent.ScreenManager.Screens
                 if (Input.KeyPressed(Keys.F7))
                 {
                     ScreenManager.unloadScreen(name);
-                   ScreenManager.addScreen(new DirectConnectScreen());
+                   ScreenManager.addScreen(new GameScreen());
                 }
 
                 //TODO or if I click on the left arrow?

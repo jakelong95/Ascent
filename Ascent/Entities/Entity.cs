@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 namespace Ascent.Entities
 {
-    abstract class Entity
+    public abstract class Entity
     {
 		protected float health;
 
@@ -13,6 +13,7 @@ namespace Ascent.Entities
 		protected float rotationVelocity;
 
 		protected Texture2D texture;
+        protected Vector2 size; //Size of the texture 
 
 		//Subclasses need to instantiate this and use their own indices
 		protected Attack[] attacks;
@@ -49,6 +50,11 @@ namespace Ascent.Entities
 		{
 			return position;
 		}
+
+        public Vector2 GetSize()
+        {
+            return size;
+        }
 
 		public void SetVelocity(float x, float y)
 		{

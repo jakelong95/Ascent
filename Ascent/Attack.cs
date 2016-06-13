@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ascent
 {
-    class Attack
+    public class Attack
     {
         //This could benefit from a better naming standard. 
         public const float COOLDOWN_STANDARD = 1.0f;

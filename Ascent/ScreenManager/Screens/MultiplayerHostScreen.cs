@@ -27,6 +27,8 @@ namespace Ascent.ScreenManager.Screens
     //We'll almost certainly want to change to unreliable, if nothing else.
     class MultiplayerHostScreen : BaseScreen
     {
+
+
         string dataReceived;
         string localIP;
         NetServer server;

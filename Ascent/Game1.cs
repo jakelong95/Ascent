@@ -34,7 +34,7 @@ namespace Ascent
         /// </summary>
         protected override void Initialize()
         {
-            this.IsMouseVisible = false;
+            this.IsMouseVisible = true;//It's how we click, yo.
             Window.AllowUserResizing = true; //We may regret this later.
 
             //Now actually set the window to GAME_SIZE
