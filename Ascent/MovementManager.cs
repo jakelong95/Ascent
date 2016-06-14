@@ -9,7 +9,7 @@ namespace Ascent
 {
     class MovementManager
     {
-        public static List<Vector2> GravityItems = new List<Vector2>();
+        public static List<GravPoint> GravityItems = new List<GravPoint>();
 
         public MovementManager()
         {
@@ -21,6 +21,24 @@ namespace Ascent
         public static void Move(Entities.Entity entity, Vector2 destination)
         {
 
+        }
+
+    }
+
+    class GravPoint
+    {
+        //Note that power must be negative to repel
+        public double x;
+
+        public double y;
+
+        public double power;
+
+        public GravPoint(double pX, double pY, double pPower)
+        {
+            this.x = pX;
+            this.y = pY;
+            this.power = pPower;
         }
     }
 }

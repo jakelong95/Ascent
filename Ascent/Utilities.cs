@@ -109,5 +109,10 @@ namespace Ascent
             //Shouldn't be reached
             return MaxEnum(enumType);
         }
+
+        public static double RadianToDegree(double angle)
+        {
+            return angle * (180.0 / Math.PI);
+        }
     }
 }
