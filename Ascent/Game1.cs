@@ -42,8 +42,6 @@ namespace Ascent
             graphics.PreferredBackBufferHeight = GAME_SIZE_Y;
             graphics.ApplyChanges();
 
-            Classes.initialize();
-
             base.Initialize();
         }
 
