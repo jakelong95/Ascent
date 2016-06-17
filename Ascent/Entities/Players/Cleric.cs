@@ -7,13 +7,11 @@ using Microsoft.Xna.Framework;
 
 namespace Ascent.Entities.Players
 {
-    class Cleric : BaseClass
+    class Cleric : Player
     {
-        public Cleric()
+        public override string Description
         {
-            name = "Cleric";
-            description = "A support class with several ways to heal and buff allies, as well as rebuke demons.";
-            classColor = Color.White;
+            get { return "A support class with several ways to heal and buff allies, as well as rebuke demons."; }
         }
     }
 }

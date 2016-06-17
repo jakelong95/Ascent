@@ -7,13 +7,14 @@ using Microsoft.Xna.Framework;
 
 namespace Ascent.Entities.Players
 {
-    class Outlaw : BaseClass
+    class Outlaw : Player
     {
-        public Outlaw()
+        public override string Description
         {
-            name = "Outlaw";
-            description = "A damage-dealing class with short cooldowns and heavy attacks.";
-            classColor = Color.Red;
+            get
+            {
+                return "A damage-dealing class with short cooldowns and heavy attacks.";
+            }
         }
     }
 }
