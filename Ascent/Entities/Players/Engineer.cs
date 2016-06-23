@@ -16,5 +16,6 @@ namespace Ascent.Entities.Players
                 return "A single-target control class. Lays traps that effect one creature and apply mild damage.";
             }
         }
+        public override PlayerClass Class { get { return PlayerClass.Engineer; } }
     }
 }

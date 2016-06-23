@@ -9,5 +9,6 @@
                 return "A multi-target damage-dealing class. Deals small amounts of damage to several foes.";
             }
         }
+        public override PlayerClass Class { get { return PlayerClass.Pirate; } }
     }
 }

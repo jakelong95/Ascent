@@ -13,5 +13,6 @@ namespace Ascent.Entities.Players
         {
             get { return "A support class with several ways to heal and buff allies, as well as rebuke demons."; }
         }
+        public override PlayerClass Class { get { return PlayerClass.Cleric; } }
     }
 }
