@@ -15,9 +15,8 @@ namespace Ascent.ScreenManager.Screens
     public class CharacterSelectionScreen : BaseScreen
     {
 
-        charClasses classSel = charClasses.CLERIC;
+        PlayerClasses classSel = PlayerClasses.CLERIC;
         public static Player tempPlayer = new Player(); //The public static part of this is for debug only
-        BaseClass tempClass; //Used to store current selected class (out variable).
 
         Color leftCol = Color.White;
         Color rightCol = Color.White;
@@ -26,8 +25,8 @@ namespace Ascent.ScreenManager.Screens
             {
                 name = "CharacterSelectionScreen";
                 state = ScreenState.Active;
-                Classes.charMap.TryGetValue(classSel, out tempClass);
-                tempPlayer.playerClass = tempClass;
+                //Classes.charMap.TryGetValue(classSel, out tempClass);
+                //tempPlayer.playerClass = tempClass;
                 tempPlayer.SetPosition(250, 250);//TODO DEBUG REMOVE
             }
 
@@ -38,12 +37,12 @@ namespace Ascent.ScreenManager.Screens
                 spriteBatch.DrawString(Fonts.georgia16, "Character Creation Screen", new Vector2(250, 10), Color.White);
 
 
-                spriteBatch.DrawString(Fonts.centaur10, tempPlayer.playerClass.getName(), new Vector2(282 - Fonts.centaur10.MeasureString(tempPlayer.playerClass.getName()).X / 2, 200), Color.White);
-                spriteBatch.DrawString(Fonts.centaur10, tempPlayer.playerClass.getDescription(), new Vector2(282 - Fonts.centaur10.MeasureString(tempPlayer.playerClass.getDescription()).X / 2, 320), Color.White);
+                //spriteBatch.DrawString(Fonts.centaur10, tempPlayer.playerClass.getName(), new Vector2(282 - Fonts.centaur10.MeasureString(tempPlayer.playerClass.getName()).X / 2, 200), Color.White);
+                //spriteBatch.DrawString(Fonts.centaur10, tempPlayer.playerClass.getDescription(), new Vector2(282 - Fonts.centaur10.MeasureString(tempPlayer.playerClass.getDescription()).X / 2, 320), Color.White);
                       
-                spriteBatch.Draw(Textures.leftArrow, new Rectangle(180, 250, 64, 64), leftCol);
-                spriteBatch.Draw(Textures.rightArrow, new Rectangle(320, 250, 64, 64), rightCol);
-                spriteBatch.Draw(Textures.playerCircle, new Rectangle((int)tempPlayer.GetPosition().X, (int)tempPlayer.GetPosition().Y, (int)tempPlayer.GetSize().X, (int)tempPlayer.GetSize().Y), tempPlayer.playerClass.getColor());
+                spriteBatch.Draw(Textures.LeftArrow, new Rectangle(180, 250, 64, 64), leftCol);
+                spriteBatch.Draw(Textures.RightArrow, new Rectangle(320, 250, 64, 64), rightCol);
+                //spriteBatch.Draw(Textures.PlayerCircle, new Rectangle((int)tempPlayer.GetPosition().X, (int)tempPlayer.GetPosition().Y, (int)tempPlayer.GetSize().X, (int)tempPlayer.GetSize().Y), tempPlayer.playerClass.getColor());
                 spriteBatch.End();
                 resetInputs();
 
@@ -66,18 +65,18 @@ namespace Ascent.ScreenManager.Screens
                 //TODO or if I click on the left arrow?
                 if (Input.KeyPressed(Keys.Left))
                 {
-                    classSel = (charClasses)Utilities.nextSmallestEnum(typeof(charClasses), (int)classSel);
+                    classSel = (PlayerClasses)Utilities.nextSmallestEnum(typeof(PlayerClasses), (int)classSel);
                     leftCol = Color.Red;
                 }
                 else if (Input.KeyPressed(Keys.Right))
                 {
-                    classSel = (charClasses)Utilities.nextGreatestEnum(typeof(charClasses), (int)classSel);
+                    classSel = (PlayerClasses)Utilities.nextGreatestEnum(typeof(PlayerClasses), (int)classSel);
                     rightCol = Color.Red;
                 }
                 
 
-                Classes.charMap.TryGetValue(classSel, out tempClass);
-                tempPlayer.playerClass = tempClass;
+                //Classes.charMap.TryGetValue(classSel, out tempClass);
+                //tempPlayer.playerClass = tempClass;
             }
 
         private void resetInputs()

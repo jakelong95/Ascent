@@ -73,6 +73,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Attack.cs" />
+    <Compile Include="Classes.cs" />
+    <Compile Include="Entities\Players\PlayerClass.cs" />
     <Compile Include="Entities\Players\Vigilante.cs" />
     <Compile Include="Entities\Players\Convict.cs" />
     <Compile Include="Entities\Players\Pirate.cs" />

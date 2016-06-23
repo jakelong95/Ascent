@@ -60,7 +60,7 @@ namespace Ascent.ScreenManager.Screens
             spriteBatch.DrawString(Fonts.georgia16, "Game Screen", new Vector2(250, 10), Color.White);
             spriteBatch.DrawString(Fonts.georgia16, "Coords: " + coords, new Vector2(250, 60), Color.White);
 
-            spriteBatch.Draw(Textures.playerCircle, new Rectangle((int)CharacterSelectionScreen.tempPlayer.GetPosition().X, (int)CharacterSelectionScreen.tempPlayer.GetPosition().Y, (int)CharacterSelectionScreen.tempPlayer.GetSize().X, (int)CharacterSelectionScreen.tempPlayer.GetSize().Y), CharacterSelectionScreen.tempPlayer.playerClass.getColor());
+            //spriteBatch.Draw(Textures.playerCircle, new Rectangle((int)CharacterSelectionScreen.tempPlayer.GetPosition().X, (int)CharacterSelectionScreen.tempPlayer.GetPosition().Y, (int)CharacterSelectionScreen.tempPlayer.GetSize().X, (int)CharacterSelectionScreen.tempPlayer.GetSize().Y), CharacterSelectionScreen.tempPlayer.playerClass.getColor());
             spriteBatch.End();
         }
     }
