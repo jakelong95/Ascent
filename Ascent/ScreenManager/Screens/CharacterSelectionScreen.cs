@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Ascent.Resources;
 using Ascent.Entities.Players;
-
+using Ascent.Entities;
 
 namespace Ascent.ScreenManager.Screens
 {
@@ -16,7 +16,7 @@ namespace Ascent.ScreenManager.Screens
     {
 
         PlayerClasses classSel = PlayerClasses.CLERIC;
-        public static Player tempPlayer = new Player(); //The public static part of this is for debug only
+        public static ImageEntity tempPlayer; //The public static part of this is for debug only
 
         Color leftCol = Color.White;
         Color rightCol = Color.White;
@@ -25,6 +25,7 @@ namespace Ascent.ScreenManager.Screens
             {
                 name = "CharacterSelectionScreen";
                 state = ScreenState.Active;
+                tempPlayer = new ImageEntity(Textures.PlayerCircle);
                 //Classes.charMap.TryGetValue(classSel, out tempClass);
                 //tempPlayer.playerClass = tempClass;
                 tempPlayer.SetPosition(250, 250);//TODO DEBUG REMOVE

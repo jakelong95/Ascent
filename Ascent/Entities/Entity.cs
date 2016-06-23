@@ -17,9 +17,19 @@ namespace Ascent.Entities
 
 		protected Texture2D texture;
         protected Vector2 textureSize;
+        public Vector2 CenterOffset { get; private set; }
 
-		//Subclasses need to instantiate this and use their own indices
-		protected Attack[] attacks;
+
+        //Subclasses need to instantiate this and use their own indices
+        protected Attack[] attacks;
+
+        public Entity(Texture2D texture)
+        {
+            this.texture = texture;
+
+            textureSize = new Vector2(texture.Width, texture.Height);
+            CenterOffset = textureSize / 2;
+        }
 
 		public virtual void Update(GameTime gameTime)
 		{
