@@ -7,13 +7,14 @@ using Microsoft.Xna.Framework;
 
 namespace Ascent.Entities.Players
 {
-    class Convict : BaseClass
+    class Convict : Player
     {
-        public Convict()
+        public override string Description
         {
-            name = "Convict";
-            description = "A tank class that can take massive amounts of damage and still stand.";
-            classColor = Color.Orange;
+            get
+            {
+                return "A tank class that can take massive amounts of damage and still stand.";
+            }
         }
     }
 }

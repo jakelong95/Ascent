@@ -7,13 +7,14 @@ using Microsoft.Xna.Framework;
 
 namespace Ascent.Entities.Players
 {
-    class Engineer : BaseClass
+    class Engineer : Player
     {
-        public Engineer()
+        public override string Description
         {
-            name = "Engineer";
-            description = "A single-target control class. Lays traps that effect one creature and apply mild damage.";
-            classColor = Color.LawnGreen;
+            get
+            {
+                return "A single-target control class. Lays traps that effect one creature and apply mild damage.";
+            }
         }
     }
 }

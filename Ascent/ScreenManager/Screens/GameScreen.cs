@@ -49,7 +49,7 @@ namespace Ascent.ScreenManager.Screens
            // && System.Windows.Forms.Form.ActiveForm.Text.Equals(this.Window.Title)) {
            //Mouse was clicked and the form is active
                 coords = "" + ms.X + ", " + ms.Y;
-                destCoords = new Vector2(ms.X + CharacterSelectionScreen.tempPlayer.offset.X, ms.Y + CharacterSelectionScreen.tempPlayer.offset.Y);
+                destCoords = new Vector2(ms.X + CharacterSelectionScreen.tempPlayer.CenterOffset.X, ms.Y + CharacterSelectionScreen.tempPlayer.CenterOffset.Y);
           }
         }
 

@@ -2,18 +2,18 @@
 
 namespace Ascent.Entities.Players
 {
-	public class Player : Entity
-	{
-        //Do players need a classcolor?
-        //It would always be equal to playerClass.getColor();
-       public BaseClass playerClass { get; set; }
-       public Vector2 offset { get; set; }
+    public abstract class Player : Entity
+    {
+        public abstract string Description { get; }
+
+        public Vector2 CenterOffset { get; private set; }
 
         public Player()
-       {
-           texture = Ascent.Resources.Textures.character;
-           size = new Vector2(64, 64);
-           offset = size / 2;
-       }
-	}
+        {
+            texture = Ascent.Resources.Textures.character;
+
+            textureSize = new Vector2(64, 64);
+            CenterOffset = textureSize / 2;
+        }
+    }
 }
