@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 namespace Ascent.Entities
 {
+    //TODO note: some functions have been left incomplete as an exercise for the Jake.
     public abstract class Entity
     {
 		protected float health;
