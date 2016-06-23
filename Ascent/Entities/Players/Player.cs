@@ -5,8 +5,8 @@ namespace Ascent.Entities.Players
 {
     public abstract class Player : Entity
     {
-        public virtual string Description { get; }
-        public virtual PlayerClass Class { get; }
+        public abstract string Description { get; }
+        public abstract PlayerClass Class { get; }
 
 
         public Player()

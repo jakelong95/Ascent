@@ -16,5 +16,6 @@ namespace Ascent.Entities.Players
                 return "A tank class that can take massive amounts of damage and still stand.";
             }
         }
+        public override PlayerClass Class { get { return PlayerClass.Convict; } }
     }
 }

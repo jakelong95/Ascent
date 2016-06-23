@@ -16,5 +16,6 @@ namespace Ascent.Entities.Players
                 return "A damage-dealing class with short cooldowns and heavy attacks.";
             }
         }
+        public override PlayerClass Class { get { return PlayerClass.Outlaw; } }
     }
 }
