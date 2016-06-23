@@ -10,7 +10,7 @@ namespace Ascent.Entities.Players
 
         public Player()
         {
-            texture = Ascent.Resources.Textures.character;
+            texture = Ascent.Resources.Textures.Character;
 
             textureSize = new Vector2(64, 64);
             CenterOffset = textureSize / 2;
