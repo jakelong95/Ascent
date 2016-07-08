@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
+﻿using Ascent.Resources;
 
 namespace Ascent.Entities.Players
 {
@@ -17,5 +12,11 @@ namespace Ascent.Entities.Players
             }
         }
         public override PlayerClass Class { get { return PlayerClass.Convict; } }
+
+        public Convict()
+            : base(Textures.PlayerCircle)
+        {
+
+        }
     }
 }

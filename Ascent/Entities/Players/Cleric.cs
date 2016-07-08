@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
+﻿using Ascent.Resources;
 
 namespace Ascent.Entities.Players
 {
@@ -14,5 +9,11 @@ namespace Ascent.Entities.Players
             get { return "A support class with several ways to heal and buff allies, as well as rebuke demons."; }
         }
         public override PlayerClass Class { get { return PlayerClass.Cleric; } }
+
+        public Cleric()
+            : base(Textures.PlayerCircle)
+        {
+
+        }
     }
 }

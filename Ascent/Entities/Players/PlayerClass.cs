@@ -1,18 +1,22 @@
-﻿using System;
+﻿using Ascent.EnumUtilities;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ascent.Entities.Players
 {
     public enum PlayerClass
     {
-        Cleric,
-        Convict,
-        Engineer,
-        Outlaw,
-        Pirate,
-        Vigilante
+        [StringValue("Cleric")]
+        Cleric,     //White
+        [StringValue("Vigilante")]
+        Convict,    //Orange
+        [StringValue("Engineer")]
+        Engineer,   //LawnGreen
+        [StringValue("Outlaw")]
+        Outlaw,     //Red
+        [StringValue("Pirate")]
+        Pirate,     //Purple
+        [StringValue("Vigilante")]
+        Vigilante   //BlueViolet
     }
 }
