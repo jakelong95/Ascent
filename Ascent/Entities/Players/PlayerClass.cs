@@ -7,16 +7,16 @@ namespace Ascent.Entities.Players
     public enum PlayerClass
     {
         [StringValue("Cleric")]
-        Cleric,     //White
+        Cleric,
         [StringValue("Vigilante")]
-        Convict,    //Orange
+        Convict,
         [StringValue("Engineer")]
-        Engineer,   //LawnGreen
+        Engineer,
         [StringValue("Outlaw")]
-        Outlaw,     //Red
+        Outlaw,
         [StringValue("Pirate")]
-        Pirate,     //Purple
+        Pirate,
         [StringValue("Vigilante")]
-        Vigilante   //BlueViolet
+        Vigilante
     }
 }
