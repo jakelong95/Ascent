@@ -11,12 +11,12 @@ namespace Ascent.EnumUtilities
         //Color is not a valid attribute type, so this is a map from class names to their colors
         private static Dictionary<PlayerClass, Color> PlayerColors = new Dictionary<PlayerClass, Color>()
         {
-            [PlayerClass.Cleric] = Color.White,
-            [PlayerClass.Convict] = Color.Orange,
-            [PlayerClass.Engineer] = Color.LawnGreen,
-            [PlayerClass.Outlaw] = Color.Red,
-            [PlayerClass.Pirate] = Color.Purple,
-            [PlayerClass.Vigilante] = Color.BlueViolet
+            { PlayerClass.Cleric, Color.White },
+            { PlayerClass.Convict, Color.Orange },
+            { PlayerClass.Engineer, Color.LawnGreen },
+            { PlayerClass.Outlaw, Color.Red },
+            { PlayerClass.Pirate, Color.Purple },
+            { PlayerClass.Vigilante, Color.BlueViolet }
         };
 
         /// <summary>
