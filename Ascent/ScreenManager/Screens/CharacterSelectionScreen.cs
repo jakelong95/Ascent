@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Input;
 using Ascent.Resources;
 using Ascent.Entities.Players;
 using Ascent.Entities;
+using Ascent.EnumUtilities;
 
 namespace Ascent.ScreenManager.Screens
 {
@@ -66,12 +67,12 @@ namespace Ascent.ScreenManager.Screens
                 //TODO or if I click on the left arrow?
                 if (Input.KeyPressed(Keys.Left))
                 {
-                    classSel = (PlayerClasses)Utilities.nextSmallestEnum(typeof(PlayerClasses), (int)classSel);
+                    classSel = classSel.PrevValue();
                     leftCol = Color.Red;
                 }
                 else if (Input.KeyPressed(Keys.Right))
                 {
-                    classSel = (PlayerClasses)Utilities.nextGreatestEnum(typeof(PlayerClasses), (int)classSel);
+                    classSel = classSel.NextValue();
                     rightCol = Color.Red;
                 }
                 

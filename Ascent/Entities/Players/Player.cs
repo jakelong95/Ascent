@@ -1,5 +1,4 @@
-﻿using Ascent.Resources;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework.Graphics;
 
 namespace Ascent.Entities.Players
 {
@@ -8,11 +7,12 @@ namespace Ascent.Entities.Players
         public abstract string Description { get; }
         public abstract PlayerClass Class { get; }
 
-
-        public Player()
-            : base(Textures.Character)
+        public Player(Texture2D texture)
+            : base(texture)
         {
-            
+
         }
+
+        //TODO Input processing
     }
 }
