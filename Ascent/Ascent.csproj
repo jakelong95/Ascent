@@ -73,7 +73,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Attack.cs" />
-    <Compile Include="Classes.cs" />
     <Compile Include="Entities\ImageEntity.cs" />
     <Compile Include="Entities\Players\PlayerClass.cs" />
     <Compile Include="Entities\Players\Vigilante.cs" />
@@ -82,6 +81,7 @@
     <Compile Include="Entities\Players\Engineer.cs" />
     <Compile Include="Entities\Players\Outlaw.cs" />
     <Compile Include="Entities\Players\Cleric.cs" />
+    <Compile Include="EnumUtilities\DescriptionValue.cs" />
     <Compile Include="MovementManager.cs" />
     <Compile Include="Resources\Fonts.cs" />
     <Compile Include="ScreenManager\Screens\CharacterSelectionScreen.cs" />
@@ -100,7 +100,7 @@
     <Compile Include="ScreenManager\Screens\TitleScreen.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="EnumUtilities\EnumExtensions.cs" />
-    <Compile Include="EnumUtilities\StringValue.cs" />
+    <Compile Include="EnumUtilities\NameValue.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Lidgren.Network, Version=3.5.0.1231, Culture=neutral, processorArchitecture=MSIL">
