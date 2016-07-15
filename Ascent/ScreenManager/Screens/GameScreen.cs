@@ -13,7 +13,7 @@ namespace Ascent.ScreenManager.Screens
 {
     class GameScreen : BaseScreen
     {
-        String coords;
+        string coords;
         Vector2 destCoords;
         MouseState ms = Mouse.GetState();
         public GameScreen(Game game) : base(game)
@@ -41,10 +41,10 @@ namespace Ascent.ScreenManager.Screens
             ms = Mouse.GetState();
             if (ms.LeftButton == ButtonState.Pressed && prevState.LeftButton == ButtonState.Released && game.IsActive)
             {
-            //Mouse was clicked and the form is active
-            coords = "" + ms.X + ", " + ms.Y;
-            destCoords = new Vector2(ms.X + CharacterSelectionScreen.tempPlayer.CenterOffset.X, ms.Y + CharacterSelectionScreen.tempPlayer.CenterOffset.Y);
-          }
+                //Mouse was clicked and the form is active
+                coords = "" + ms.X + ", " + ms.Y;
+                destCoords = new Vector2(ms.X + CharacterSelectionScreen.tempPlayer.CenterOffset.X, ms.Y + CharacterSelectionScreen.tempPlayer.CenterOffset.Y);
+            }
         }
 
         public override void Draw(SpriteBatch spriteBatch)
