@@ -16,7 +16,6 @@ namespace Ascent
         private ScreenManager.ScreenManager screenManager;
         public static bool shouldExit = false; //Used to exit from menus or the game.
 
-
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
