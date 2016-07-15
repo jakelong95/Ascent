@@ -57,7 +57,7 @@ namespace Ascent
             Fonts.load(this.Content);
 
             screenManager = new ScreenManager.ScreenManager();
-            ScreenManager.ScreenManager.addScreen(new CharacterSelectionScreen()); 
+            ScreenManager.ScreenManager.addScreen(new CharacterSelectionScreen(this)); 
         }
 
         /// <summary>

@@ -21,7 +21,7 @@ namespace Ascent.ScreenManager.Screens
         NetClient client;
         bool readyConnect = false;
 
-        public DirectConnectScreen()
+        public DirectConnectScreen(Game game) : base(game)
         {
             name = "DirectConnectScreen";
             state = ScreenState.Active;
@@ -58,7 +58,7 @@ namespace Ascent.ScreenManager.Screens
                 if (Input.KeyPressed(Keys.F7))
                 {
                     ScreenManager.unloadScreen(name);
-                    ScreenManager.addScreen(new MultiplayerHostScreen());
+                    ScreenManager.addScreen(new MultiplayerHostScreen(game));
                 }
                 if (Input.KeyPressed(Keys.Back))
                 {

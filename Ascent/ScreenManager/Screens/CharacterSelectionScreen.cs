@@ -22,13 +22,12 @@ namespace Ascent.ScreenManager.Screens
         Color leftCol = Color.White;
         Color rightCol = Color.White;
 
-            public CharacterSelectionScreen()
+            public CharacterSelectionScreen(Game game) : base(game)
             {
                 name = "CharacterSelectionScreen";
                 state = ScreenState.Active;
                 tempPlayer = new ImageEntity(Textures.PlayerCircle);
-                //Classes.charMap.TryGetValue(classSel, out tempClass);
-                //tempPlayer.playerClass = tempClass;
+                
                 tempPlayer.SetPosition(250, 250);//TODO DEBUG REMOVE
             }
 
@@ -36,6 +35,7 @@ namespace Ascent.ScreenManager.Screens
             {
                 spriteBatch.Begin();
                 //TODO: How do I know screen size locations?
+                //game.GraphicsDevice.Viewport.Width/Height
                 spriteBatch.DrawString(Fonts.georgia16, "Character Creation Screen", new Vector2(250, 10), Color.White);
 
 
@@ -61,7 +61,7 @@ namespace Ascent.ScreenManager.Screens
                 if (Input.KeyPressed(Keys.F7))
                 {
                     ScreenManager.unloadScreen(name);
-                   ScreenManager.addScreen(new GameScreen());
+                   ScreenManager.addScreen(new GameScreen(game));
                 }
 
                 //TODO or if I click on the left arrow?

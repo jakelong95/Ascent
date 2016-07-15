@@ -10,7 +10,7 @@ using Ascent.ScreenManager;
 
     class TitleScreen : BaseScreen
     {
-        public TitleScreen()
+        public TitleScreen(Game game) : base(game)
         {
             name = "TitleScreen";
             state = ScreenState.Active;
