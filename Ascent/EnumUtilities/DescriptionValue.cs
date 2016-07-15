@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Ascent.EnumUtilities
 {
-    public class StringValue : Attribute
+    public class DescriptionValue : Attribute
     {
         private string value;
 
-        public StringValue(string value)
+        public DescriptionValue(string value)
         {
             this.value = value;
         }
