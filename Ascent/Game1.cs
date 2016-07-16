@@ -16,7 +16,6 @@ namespace Ascent
         private ScreenManager.ScreenManager screenManager;
         public static bool shouldExit = false; //Used to exit from menus or the game.
 
-
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -57,7 +56,7 @@ namespace Ascent
             Fonts.load(this.Content);
 
             screenManager = new ScreenManager.ScreenManager();
-            ScreenManager.ScreenManager.addScreen(new CharacterSelectionScreen()); 
+            ScreenManager.ScreenManager.addScreen(new CharacterSelectionScreen(this)); 
         }
 
         /// <summary>

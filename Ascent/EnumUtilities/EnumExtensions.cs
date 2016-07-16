@@ -20,19 +20,34 @@ namespace Ascent.EnumUtilities
         };
 
         /// <summary>
-        /// Gets the string value associated with this enum value.
+        /// Gets the name value associated with this enum value.
         /// </summary>
         /// <param name="value">Enum value.</param>
-        /// <returns>String value of the enum, if one exists. null otherwise.</returns>
-        public static string GetStringValue(this Enum value)
+        /// <returns>Name value of the enum, if one exists. null otherwise.</returns>
+        public static string GetName(this Enum value)
         {
             Type type = value.GetType();
             FieldInfo fieldInfo = type.GetField(value.ToString());
 
-            StringValue[] attribs = fieldInfo.GetCustomAttributes(
-                typeof(StringValue), false) as StringValue[];
+            NameValue[] attribs = fieldInfo.GetCustomAttributes(typeof(NameValue), false) as NameValue[];
 
             // Return the first if there was a match.
+            return attribs.Length > 0 ? attribs[0].Value : null;
+        }
+
+        /// <summary>
+        /// Gets the description value associated with this enum value.
+        /// </summary>
+        /// <param name="value">Enum value.</param>
+        /// <returns>Description value of the enum, if one exists. null otherwise.</returns>
+        public static string GetDescription(this Enum value)
+        {
+            Type type = value.GetType();
+            FieldInfo fieldInfo = type.GetField(value.ToString());
+
+            DescriptionValue[] attribs = fieldInfo.GetCustomAttributes(typeof(DescriptionValue), false) as DescriptionValue[];
+
+            //Return the first if there was a match
             return attribs.Length > 0 ? attribs[0].Value : null;
         }
 
@@ -95,9 +110,9 @@ namespace Ascent.EnumUtilities
             }
 
             int[] enumValues = (int[]) Enum.GetValues(value.GetType());
-            int valueIndex = Array.IndexOf(enumValues, value);
+            int valueIndex = Array.IndexOf(enumValues, value) + 1;
 
-            return (T)(object) ((valueIndex >= enumValues.Length) ? enumValues[0] : enumValues[valueIndex + 1]);
+            return (T)(object) ((valueIndex >= enumValues.Length) ? enumValues[0] : enumValues[valueIndex]);
         }
 
         /// <summary>
@@ -115,9 +130,9 @@ namespace Ascent.EnumUtilities
             }
 
             int[] enumValues = (int[]) Enum.GetValues(value.GetType());
-            int valueIndex = Array.IndexOf(enumValues, value);
+            int valueIndex = Array.IndexOf(enumValues, value) - 1;
 
-            return (T)(object) ((valueIndex < 0) ? enumValues[enumValues.Length - 1] : enumValues[valueIndex - 1]);
+            return (T)(object) ((valueIndex < 0) ? enumValues[enumValues.Length - 1] : enumValues[valueIndex]);
         }
     }
 }

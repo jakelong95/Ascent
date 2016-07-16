@@ -16,6 +16,13 @@ namespace Ascent.ScreenManager
         public bool focused;
         public bool grabFocus = true;
 
+        protected Game game;
+
+        public BaseScreen(Game game)
+        {
+            this.game = game;
+        }
+
         public virtual void HandleInput()
         {
 

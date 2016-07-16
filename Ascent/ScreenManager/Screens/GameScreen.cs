@@ -13,10 +13,10 @@ namespace Ascent.ScreenManager.Screens
 {
     class GameScreen : BaseScreen
     {
-        String coords;
+        string coords;
         Vector2 destCoords;
         MouseState ms = Mouse.GetState();
-        public GameScreen()
+        public GameScreen(Game game) : base(game)
         {
             name = "GameScreen";
             state = ScreenState.Active;
@@ -31,7 +31,7 @@ namespace Ascent.ScreenManager.Screens
             if (Input.KeyPressed(Keys.F7))
             {
                 ScreenManager.unloadScreen(name);
-                ScreenManager.addScreen(new DirectConnectScreen());
+                ScreenManager.addScreen(new DirectConnectScreen(game));
             }
         }
 
@@ -39,24 +39,19 @@ namespace Ascent.ScreenManager.Screens
         {
             MouseState prevState = ms;
             ms = Mouse.GetState();
-        if (ms.LeftButton == ButtonState.Pressed
-            && prevState.LeftButton == ButtonState.Released){
-            //But we forreal need to restruct this to the screen, and it would be nice if I could have my isactive back
-           // && this.IsActive //We removed this. Can we have it back.
-           // && ms.X >= 0 && ms.X < graphics.PreferredBackBufferWidth //Still don't konw how to access this.
-         //   && ms.Y >= 0 && ms.Y < graphics.PreferredBackBufferHeight
-           // && System.Windows.Forms.Form.ActiveForm != null
-           // && System.Windows.Forms.Form.ActiveForm.Text.Equals(this.Window.Title)) {
-           //Mouse was clicked and the form is active
+            if (ms.LeftButton == ButtonState.Pressed && prevState.LeftButton == ButtonState.Released && game.IsActive)
+            {
+                //Mouse was clicked and the form is active
                 coords = "" + ms.X + ", " + ms.Y;
                 destCoords = new Vector2(ms.X + CharacterSelectionScreen.tempPlayer.CenterOffset.X, ms.Y + CharacterSelectionScreen.tempPlayer.CenterOffset.Y);
-          }
+            }
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
             //TODO: How do I know screen size locations?
+            //game.GraphicsDevice.Viewport.Width/Height
             spriteBatch.DrawString(Fonts.georgia16, "Game Screen", new Vector2(250, 10), Color.White);
             spriteBatch.DrawString(Fonts.georgia16, "Coords: " + coords, new Vector2(250, 60), Color.White);
 
