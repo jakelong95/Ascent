@@ -18,6 +18,12 @@ namespace Ascent.Entities
 		protected Vector2 textureSize;
 		public Vector2 CenterOffset { get; private set; }
 
+        /// The direction that the enity's body is facing, in degrees.
+        /// The value returned will be in the range [0, 360).
+        /// Note that the heading is like a compass, where 0 means North,
+        /// 90 means East, 180 means South, and 270 means West.
+        private double heading = 0;
+
 
 		//Subclasses need to instantiate this and use their own indices
 		protected Attack[] attacks;
@@ -143,6 +149,7 @@ namespace Ascent.Entities
         public void SetVelocity(float x, float y)
         {
             //TODO
+            //Is this needed?
         }
 
         ///The amount of degrees to turn the entity to the left.
@@ -151,9 +158,14 @@ namespace Ascent.Entities
         ///If degrees = 0 the entity is set to stop turning.
         void setTurnLeft(double degrees)
         {
-            //TODO
-        }
+            heading -= degrees;
+            heading = heading % 360;
 
+            if (heading < 0)
+            {
+                heading += 360;
+            }
+        }
         
         ///Sets the entity to move ahead (forward)
         ///by distance measured in pixels
@@ -179,8 +191,7 @@ namespace Ascent.Entities
         /// <returns></returns>
         double getHeading()
         {
-            //TODO
-            return 0;
+            return heading;
         }
         
 
