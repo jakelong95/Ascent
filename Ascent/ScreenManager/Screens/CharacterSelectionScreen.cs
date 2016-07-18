@@ -27,7 +27,7 @@ namespace Ascent.ScreenManager.Screens
             name = "CharacterSelectionScreen";
             state = ScreenState.Active;
             tempPlayer = new ImageEntity(Textures.PlayerCircle);
-            tempPlayer.SetPosition(250, 250);//TODO DEBUG REMOVE
+            tempPlayer.SetPosition(game.GraphicsDevice.Viewport.Width / 2 - (int)tempPlayer.GetSize().X / 2, 250 + (int)tempPlayer.GetSize().Y /2);//TODO DEBUG REMOVE
 
             selectedClass = PlayerClass.Cleric;
         }
@@ -35,16 +35,14 @@ namespace Ascent.ScreenManager.Screens
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-            //TODO: How do I know screen size locations?
-            //game.GraphicsDevice.Viewport.Width/Height
-            spriteBatch.DrawString(Fonts.georgia16, "Character Creation Screen", new Vector2(250, 10), Color.White);
+            spriteBatch.DrawString(Fonts.georgia16, "Character Creation Screen", new Vector2(Utilities.CenterTextX(Fonts.georgia16,"Character Creation Screen"), 10), Color.White);
 
 
-            spriteBatch.DrawString(Fonts.centaur10, selectedClass.GetName(), new Vector2(282 - Fonts.centaur10.MeasureString(selectedClass.GetName()).X / 2, 200), Color.White);
-            spriteBatch.DrawString(Fonts.centaur10, selectedClass.GetDescription(), new Vector2(282 - Fonts.centaur10.MeasureString(selectedClass.GetDescription()).X / 2, 320), Color.White);
+            spriteBatch.DrawString(Fonts.centaur10, selectedClass.GetName(), new Vector2(Utilities.CenterTextX(Fonts.centaur10, selectedClass.GetName()), 200), Color.White);
+            spriteBatch.DrawString(Fonts.centaur10, selectedClass.GetDescription(), new Vector2(Utilities.CenterTextX(Fonts.centaur10, selectedClass.GetDescription()), 320), Color.White);
                   
-            spriteBatch.Draw(Textures.LeftArrow, new Rectangle(180, 250, 64, 64), leftCol);
-            spriteBatch.Draw(Textures.RightArrow, new Rectangle(320, 250, 64, 64), rightCol);
+            spriteBatch.Draw(Textures.LeftArrow, new Rectangle(game.GraphicsDevice.Viewport.Width / 100 * 35, 250, 64, 64), leftCol);
+            spriteBatch.Draw(Textures.RightArrow, new Rectangle(game.GraphicsDevice.Viewport.Width / 100 * 55, 250, 64, 64), rightCol);
             spriteBatch.Draw(Textures.PlayerCircle, new Rectangle((int)tempPlayer.GetPosition().X, (int)tempPlayer.GetPosition().Y, (int)tempPlayer.GetSize().X, (int)tempPlayer.GetSize().Y), selectedClass.GetColor());
             spriteBatch.End();
             resetInputs();

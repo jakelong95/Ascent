@@ -22,8 +22,6 @@ namespace Ascent.ScreenManager.Screens
             state = ScreenState.Active;
             ms = Mouse.GetState();
         }
-        
-       
 
         public override void HandleInput()
         {
@@ -50,10 +48,8 @@ namespace Ascent.ScreenManager.Screens
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-            //TODO: How do I know screen size locations?
-            //game.GraphicsDevice.Viewport.Width/Height
-            spriteBatch.DrawString(Fonts.georgia16, "Game Screen", new Vector2(250, 10), Color.White);
-            spriteBatch.DrawString(Fonts.georgia16, "Coords: " + coords, new Vector2(250, 60), Color.White);
+            spriteBatch.DrawString(Fonts.georgia16, "Game Screen", new Vector2(Utilities.CenterTextX(Fonts.georgia16, "Game Screen"), 10), Color.White);
+            spriteBatch.DrawString(Fonts.georgia16, "Coords: " + coords, new Vector2(Utilities.CenterTextX(Fonts.georgia16, "Coords: " + coords), 60), Color.White);
 
             //spriteBatch.Draw(Textures.playerCircle, new Rectangle((int)CharacterSelectionScreen.tempPlayer.GetPosition().X, (int)CharacterSelectionScreen.tempPlayer.GetPosition().Y, (int)CharacterSelectionScreen.tempPlayer.GetSize().X, (int)CharacterSelectionScreen.tempPlayer.GetSize().Y), CharacterSelectionScreen.tempPlayer.playerClass.getColor());
             spriteBatch.End();

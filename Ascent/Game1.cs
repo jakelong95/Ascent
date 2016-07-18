@@ -12,6 +12,11 @@ namespace Ascent
     /// </summary>
     public class Game1 : Game
     {
+        //(11:32:09 AM) Jake Long: You could just have game1 have a static member 
+        //for the graphics device and I could change it later.
+        //Do what you need to work on it 18/Jul/2016
+        public static GraphicsDevice temporaryGraphicsDevice; 
+
         public const int GAME_SIZE_X = 800, GAME_SIZE_Y = 600;
         private ScreenManager.ScreenManager screenManager;
         public static bool shouldExit = false; //Used to exit from menus or the game.
@@ -40,6 +45,8 @@ namespace Ascent
             graphics.PreferredBackBufferWidth = GAME_SIZE_X;
             graphics.PreferredBackBufferHeight = GAME_SIZE_Y;
             graphics.ApplyChanges();
+
+            temporaryGraphicsDevice = this.GraphicsDevice;
 
             base.Initialize();
         }

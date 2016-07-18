@@ -39,7 +39,7 @@ namespace Ascent.ScreenManager.Screens
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-            spriteBatch.DrawString(Fonts.georgia16, "Connection Client Screen", new Vector2(250, 10), Color.White);
+            spriteBatch.DrawString(Fonts.georgia16, "Connection Client Screen", new Vector2(Utilities.CenterTextX(Fonts.georgia16, "Connection Client Screen"), 10), Color.White);
             spriteBatch.DrawString(Fonts.georgia16, ip, new Vector2(200, 200), Color.White);
             //spriteBatch.Draw(gameWinScreen, new Rectangle(0, 0, Game1.GAME_SIZE_X, Game1.GAME_SIZE_Y), Color.White);
          //   if (connecting)
