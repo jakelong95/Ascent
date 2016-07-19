@@ -16,7 +16,7 @@ namespace Ascent.EnumUtilities
             { PlayerClass.Engineer, Color.LawnGreen },
             { PlayerClass.Outlaw, Color.Red },
             { PlayerClass.Pirate, Color.Purple },
-            { PlayerClass.Vigilante, Color.BlueViolet }
+            { PlayerClass.Vigilante, Color.Yellow }
         };
 
         /// <summary>

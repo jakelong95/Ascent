@@ -193,7 +193,7 @@ namespace Ascent.ScreenManager.Screens
 		public override void Draw(SpriteBatch spriteBatch)
 		{
 			spriteBatch.Begin();
-            spriteBatch.DrawString(Fonts.georgia16, "Connection Host Screen", new Vector2(Utilities.CenterTextX(Fonts.georgia16, "Connection Host Screen"), 10), Color.White);
+			spriteBatch.DrawString(Fonts.georgia16, "Connection Host Screen", new Vector2(Utilities.CenterTextX(Fonts.georgia16, "Connection Host Screen"), 10), Color.White);
 			spriteBatch.DrawString(Fonts.georgia16, "Your IP address is: " + localIP, new Vector2(200, 200), Color.White);
 			spriteBatch.DrawString(Fonts.georgia16, "Data received: " + dataReceived, new Vector2(200, 350), Color.White);
 			spriteBatch.DrawString(Fonts.georgia16, connected, new Vector2(230, 370), Color.White);
