@@ -22,7 +22,6 @@ namespace Ascent.ScreenManager.Screens
 
         public DirectConnectScreen(Game game) : base(game)
         {
-            Console.Out.WriteLine("Test");
             name = "DirectConnectScreen";
             state = ScreenState.Active;
         }
@@ -72,11 +71,12 @@ namespace Ascent.ScreenManager.Screens
 
         }
 
-        //The amount of error checking here is approximately none.
         public void makeConnection()
         {
             var config = new NetPeerConfiguration("Ascent");
+			config.EnableMessageType(NetIncomingMessageType.DiscoveryResponse);
             client = new NetClient(config);
+		    client.DiscoverLocalPeers(12345);
             client.Start();
             client.Connect(ip, 12345);
             connected = true;
@@ -89,11 +89,13 @@ namespace Ascent.ScreenManager.Screens
             {
                 switch (message.MessageType)
                 {
+					case NetIncomingMessageType.DiscoveryResponse:
+					  Console.Out.WriteLine("Found server at " + message.SenderEndPoint + " name: " + message.ReadString());
+					   break;
                     case NetIncomingMessageType.Data:
                         // handle custom messages
                         var data = message.ReadByte();//Do something with this
                         break;
-
                     case NetIncomingMessageType.StatusChanged:
                         // handle connection status messages
                         switch(message.SenderConnection.Status)
