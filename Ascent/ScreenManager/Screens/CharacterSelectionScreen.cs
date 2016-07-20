@@ -37,7 +37,6 @@ namespace Ascent.ScreenManager.Screens
             spriteBatch.Begin();
             spriteBatch.DrawString(Fonts.georgia16, "Character Creation Screen", new Vector2(Utilities.CenterTextX(Fonts.georgia16,"Character Creation Screen"), 10), Color.White);
 
-
             spriteBatch.DrawString(Fonts.centaur10, selectedClass.GetName(), new Vector2(Utilities.CenterTextX(Fonts.centaur10, selectedClass.GetName()), 200), Color.White);
             spriteBatch.DrawString(Fonts.centaur10, selectedClass.GetDescription(), new Vector2(Utilities.CenterTextX(Fonts.centaur10, selectedClass.GetDescription()), 320), Color.White);
                   

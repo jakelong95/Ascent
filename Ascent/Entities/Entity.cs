@@ -193,7 +193,6 @@ namespace Ascent.Entities
         {
             return heading;
         }
-        
 
         /**Returns the distance between two points**/
         double getRange(double x1, double y1, double x2, double y2)
