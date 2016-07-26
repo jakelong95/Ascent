@@ -12,113 +12,113 @@ using Lidgren.Network;
 
 namespace Ascent.ScreenManager.Screens
 {
-    //Netowrking based on http://xnacoding.blogspot.com/2010/07/how-to-lidgren-network.html
-    //And http://genericgamedev.com/tutorials/lidgren-network-an-introduction-to-networking-in-csharp-games/
-    class DirectConnectScreen : BaseScreen
-    {
-        private string ip = "";
-        NetClient client;
-        bool connected = false;
+	//Netowrking based on http://xnacoding.blogspot.com/2010/07/how-to-lidgren-network.html
+	//And http://genericgamedev.com/tutorials/lidgren-network-an-introduction-to-networking-in-csharp-games/
+	class DirectConnectScreen : BaseScreen
+	{
+		private string ip = "";
+		NetClient client;
+		bool connected = false;
 
-        public DirectConnectScreen(Game game) : base(game)
-        {
-            name = "DirectConnectScreen";
-            state = ScreenState.Active;
-        }
+		public DirectConnectScreen(Game game) : base(game)
+		{
+			name = "DirectConnectScreen";
+			state = ScreenState.Active;
+		}
 
-        public override void Update(float delta)
-        {
-            if(connected)
-            {
-                checkForMesage();
-            }
-           
-        }
+		public override void Update(float delta)
+		{
+			if(connected)
+			{
+				checkForMesage();
+			}
+		   
+		}
 
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Begin();
-            spriteBatch.DrawString(Fonts.georgia16, "Connection Client Screen", new Vector2(Utilities.CenterTextX(Fonts.georgia16, "Connection Client Screen"), 10), Color.White);
-            spriteBatch.DrawString(Fonts.georgia16, ip, new Vector2(200, 200), Color.White);
-            //spriteBatch.Draw(gameWinScreen, new Rectangle(0, 0, Game1.GAME_SIZE_X, Game1.GAME_SIZE_Y), Color.White);
-         //   if (connecting)
-        //    {
-          //      spriteBatch.DrawString(Fonts.georgia16, "Connecting", new Vector2(200, 400), Color.White);
-          //  }
-            spriteBatch.End();
-        }
+		public override void Draw(SpriteBatch spriteBatch)
+		{
+			spriteBatch.Begin();
+			spriteBatch.DrawString(Fonts.georgia16, "Connection Client Screen", new Vector2(Utilities.CenterTextX(Fonts.georgia16, "Connection Client Screen"), 10), Color.White);
+			spriteBatch.DrawString(Fonts.georgia16, ip, new Vector2(200, 200), Color.White);
+			//spriteBatch.Draw(gameWinScreen, new Rectangle(0, 0, Game1.GAME_SIZE_X, Game1.GAME_SIZE_Y), Color.White);
+		 //   if (connecting)
+		//    {
+		  //      spriteBatch.DrawString(Fonts.georgia16, "Connecting", new Vector2(200, 400), Color.White);
+		  //  }
+			spriteBatch.End();
+		}
 
-        public override void HandleInput()
-        {
-          //  if (!connecting)
-            {
-                //Debug switch to character selection
-                if (Input.KeyPressed(Keys.F7))
-                {
-                    ScreenManager.unloadScreen(name);
-                    ScreenManager.addScreen(new MultiplayerHostScreen(game));
-                }
-                if (Input.KeyPressed(Keys.Back))
-                {
-                    ip = "";
-                }
-                ip += Input.keysEntered();
-                if (Input.KeyPressed(Keys.Enter))
-                {
-                   makeConnection();
-                }
-            }
+		public override void HandleInput()
+		{
+		  //  if (!connecting)
+			{
+				//Debug switch to character selection
+				if (Input.KeyPressed(Keys.F7))
+				{
+					ScreenManager.unloadScreen(name);
+					ScreenManager.addScreen(new MultiplayerHostScreen(game));
+				}
+				if (Input.KeyPressed(Keys.Back))
+				{
+					ip = "";
+				}
+				ip += Input.keysEntered();
+				if (Input.KeyPressed(Keys.Enter))
+				{
+				   makeConnection();
+				}
+			}
 
-        }
+		}
 
-        public void makeConnection()
-        {
-            var config = new NetPeerConfiguration("Ascent");
+		public void makeConnection()
+		{
+			var config = new NetPeerConfiguration("Ascent");
 			config.EnableMessageType(NetIncomingMessageType.DiscoveryResponse);
-            client = new NetClient(config);
-            client.Start();
+			client = new NetClient(config);
+			client.Start();
 			client.Connect(host: "127.0.0.1", port: 12345);
 			client.DiscoverLocalPeers(12345);
-            //client.Connect(ip, 12345);
-            connected = true;
-        }
+			//client.Connect(ip, 12345);
+			connected = true;
+		}
 
-       public void checkForMesage()
-       {
-            NetIncomingMessage message;
-            while ((message = client.ReadMessage()) != null)
-            {
-                switch (message.MessageType)
-                {
+	   public void checkForMesage()
+	   {
+			NetIncomingMessage message;
+			while ((message = client.ReadMessage()) != null)
+			{
+				switch (message.MessageType)
+				{
 					case NetIncomingMessageType.DiscoveryResponse:
 					  Console.Out.WriteLine("Found server at " + message.SenderEndPoint + " name: " + message.ReadString());
 					   break;
-                    case NetIncomingMessageType.Data:
-                        // handle custom messages
-                        var data = message.ReadByte();//Do something with this
-                        break;
-                    case NetIncomingMessageType.StatusChanged:
-                        // handle connection status messages
-                        switch(message.SenderConnection.Status)
-                        {
-                            /* .. */
-                        }
-                        break;
+					case NetIncomingMessageType.Data:
+						// handle custom messages
+						var data = message.ReadByte();//Do something with this
+						break;
+					case NetIncomingMessageType.StatusChanged:
+						// handle connection status messages
+						switch(message.SenderConnection.Status)
+						{
+							/* .. */
+						}
+						break;
 
-                    case NetIncomingMessageType.DebugMessage:
-                        // handle debug messages
-                        // (only received when compiled in DEBUG mode)
-                        Console.WriteLine(message.ReadString());
-                        break;
+					case NetIncomingMessageType.DebugMessage:
+						// handle debug messages
+						// (only received when compiled in DEBUG mode)
+						Console.WriteLine(message.ReadString());
+						break;
 
-                    /* .. */
-                    default:
-                        Console.WriteLine("unhandled message with type: "
-                            + message.MessageType);
-                        break;
-                }
-            }
-        }
+					/* .. */
+					default:
+						Console.WriteLine("unhandled message with type: "
+							+ message.MessageType);
+						break;
+				}
+			}
+		}
 
-    }
+	}
 }
