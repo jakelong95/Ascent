@@ -97,7 +97,6 @@ namespace Ascent.ScreenManager.Screens
 				  // Create a response and write some example data to it
 				  NetOutgoingMessage response = server.CreateMessage();
 				  response.Write("Ascent Server");
-				  dataReceived = "Connected";
 				  Console.Out.Write("connected");
 				  // Send the response to the sender of the request
 				  server.SendDiscoveryResponse(response, msg.SenderEndPoint);
