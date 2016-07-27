@@ -76,9 +76,10 @@ namespace Ascent.ScreenManager.Screens
             var config = new NetPeerConfiguration("Ascent");
 			config.EnableMessageType(NetIncomingMessageType.DiscoveryResponse);
             client = new NetClient(config);
-		    client.DiscoverLocalPeers(12345);
             client.Start();
-            client.Connect(ip, 12345);
+			client.Connect(host: "127.0.0.1", port: 12345);
+			client.DiscoverLocalPeers(12345);
+            //client.Connect(ip, 12345);
             connected = true;
         }
 

@@ -30,7 +30,6 @@ namespace Ascent.ScreenManager.Screens
 		string dataReceived;
 		string localIP;
 		NetServer server;
-		NetIncomingMessage inc; //Store and read msg
 		DateTime time = DateTime.Now;
 		TimeSpan timetopass = new TimeSpan(0, 0, 0, 0, 30); // Create timespan of 30ms
 		bool connInit = false;
@@ -101,7 +100,7 @@ namespace Ascent.ScreenManager.Screens
 				  dataReceived = "Connected";
 				  Console.Out.Write("connected");
 				  // Send the response to the sender of the request
-				  server.SendDiscoveryResponse(response, inc.SenderEndPoint);
+				  server.SendDiscoveryResponse(response, msg.SenderEndPoint);
 				  break;
 				case NetIncomingMessageType.VerboseDebugMessage:
 				case NetIncomingMessageType.DebugMessage:
