@@ -6,6 +6,7 @@ public class ButtonClicked : MonoBehaviour {
 	public float cooldownDuration;
 	public Image img;
 	public Button btn;
+	public Power power;
 	private bool cooldown = false;
 
 	// Use this for initialization
