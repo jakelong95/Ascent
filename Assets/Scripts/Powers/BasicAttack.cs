@@ -8,12 +8,12 @@ using UnityEngine.UI;
 	void Start () {
 		button.onClick.AddListener (onButtonClick);
 	}
-		
 
 	public override void use ()
 	{
 		if (!isOnCooldown) {
 			Debug.Log ("Used Basic Attack");
+			isOnCooldown = true;
 		}
 	}
 

@@ -9,15 +9,15 @@ using UnityEngine.UI;
 		button.onClick.AddListener (onButtonClick);
 	}
 
-
 	public override void use ()
 	{
 		if (!isOnCooldown) {
 			Debug.Log ("Used Power Attack");
+			isOnCooldown = true;
 		}
 	}
 
-	protected virtual void onButtonClick() {
+	 void onButtonClick() {
 		Debug.Log ("Clicked BUtton");
 		Debug.Log (button);
 		//Player.selected.icon.enabled = false;
