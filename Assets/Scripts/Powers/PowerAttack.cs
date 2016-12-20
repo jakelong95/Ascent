@@ -2,18 +2,18 @@
 using System.Collections;
 using UnityEngine.UI;
 
-	public class BasicAttack : Power {
+	public class PowerAttack : Power {
 
 	// Use this for initialization
 	void Start () {
 		button.onClick.AddListener (onButtonClick);
 	}
-		
+
 
 	public override void use ()
 	{
 		if (!isOnCooldown) {
-			Debug.Log ("Used Basic Attack");
+			Debug.Log ("Used Power Attack");
 		}
 	}
 
@@ -30,15 +30,15 @@ using UnityEngine.UI;
 		// Deactivate myButton
 		isOnCooldown = true;
 		button.interactable = false;
-	
+
 		// Wait for cooldown duration
 		yield return new WaitForSeconds(cooldownDuration);
-	
+
 		// Reactivate myButton
 		button.interactable = true;
 		isOnCooldown = false;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown(key)) {
