@@ -11,13 +11,8 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//TODO define all powers here
-		//powers[0] = new PowerAttack();//gameObject.AddComponent<BasicAttack>();
-		//powers [1] = gameObject.AddComponent<PowerAttack>();
-
-		//TODO hide all but first power from displaying on screen
-
 		selected = powers [0];
+		//TODO hide all but first power from displaying on screen
 	}
 	
 	// Update is called once per frame
@@ -25,11 +20,14 @@ public class Player : MonoBehaviour {
 		foreach(Power p in powers){//If a hotkey is pressed, select that power.
 			if (Input.GetKeyDown (p.key)) {
 				p.button.onClick.Invoke ();
+				selected.sel.enabled = false;
+				selected = p;
+				selected.sel.enabled = true;
 			}
 		}
 			
 		//Attack
-		if (Input.GetMouseButton (0) && panel.activeSelf && //Is click outside of paneL?
+		if (Input.GetMouseButton (0) && panel.activeSelf && //Is click outside of panelL?
 		    !RectTransformUtility.RectangleContainsScreenPoint (
 			    panel.GetComponent<RectTransform> (), 
 			    Input.mousePosition, 
