@@ -8,6 +8,8 @@ public abstract class Power : MonoBehaviour {
 	public Button button;
 	public KeyCode key;
 	public float cooldownDuration;
+	public float distance = 10.0f;
+
 
 	protected bool isOnCooldown = false;
 
@@ -22,15 +24,14 @@ public abstract class Power : MonoBehaviour {
 	
 		if (isOnCooldown) {
 			icon.fillAmount += Time.deltaTime / cooldownDuration;
-			if (icon.fillAmount >= 1) {
-				icon.fillAmount = 0;
-			}
 		}
 	}
 
 	protected virtual void onButtonClick() {
-			Player.selected.icon.enabled = false;
-			sel.enabled = true;
+			//Switch the selected icon.
+			Player.selected.sel.enabled = false;
+			Player.selected = this;
+			Player.selected.sel.enabled = true;
 	}
 
 		// Coroutine that will deactivate and reactivate the button 
@@ -44,6 +45,7 @@ public abstract class Power : MonoBehaviour {
 			yield return new WaitForSeconds(cooldownDuration);
 		
 			// Reactivate myButton
+			icon.fillAmount = 0;
 			button.interactable = true;
 			isOnCooldown = false;
 		}

@@ -21,8 +21,10 @@ public class Player : MonoBehaviour {
 			if (Input.GetKeyDown (p.key)) {
 				p.button.onClick.Invoke ();
 				selected.sel.enabled = false;
+				selected.icon.enabled = true;
 				selected = p;
 				selected.sel.enabled = true;
+				selected.icon.enabled = true;//Move this back on top.
 			}
 		}
 			
