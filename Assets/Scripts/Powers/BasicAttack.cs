@@ -23,7 +23,7 @@ using UnityEngine.UI;
 			Vector3 shootDirection = Input.mousePosition;
 			shootDirection.z = 0.0f;
 			shootDirection = Camera.main.ScreenToWorldPoint(shootDirection);
-			shootDirection = shootDirection-transform.position;
+			shootDirection = shootDirection-playerUsingAbility.transform.position;
 			//...instantiating the rocket
 			Rigidbody2D bulletInstance = Instantiate(bulletFab, playerUsingAbility.transform.position, playerUsingAbility.transform.rotation/*Quaternion.Euler(new Vector3(0,0,0))*/) as Rigidbody2D;
 			Debug.Log (transform);
