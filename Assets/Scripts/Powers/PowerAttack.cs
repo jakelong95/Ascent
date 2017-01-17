@@ -9,7 +9,7 @@ using UnityEngine.UI;
 		base.start ();
 	}
 
-	public override void use ()
+	public override void use (Player playerUsingAbility)
 	{
 		if (!isOnCooldown) {
 			Debug.Log ("Used Power Attack");

@@ -11,7 +11,7 @@ using UnityEngine.UI;
 		base.start ();
 	}
 
-	public override void use ()
+	public override void use (Player playerUsingAbility)
 	{
 		if (!isOnCooldown) {
 			Debug.Log ("Used Basic Attack");
@@ -25,7 +25,7 @@ using UnityEngine.UI;
 			shootDirection = Camera.main.ScreenToWorldPoint(shootDirection);
 			shootDirection = shootDirection-transform.position;
 			//...instantiating the rocket
-			Rigidbody2D bulletInstance = Instantiate(bulletFab, transform.position, transform.rotation/*Quaternion.Euler(new Vector3(0,0,0))*/) as Rigidbody2D;
+			Rigidbody2D bulletInstance = Instantiate(bulletFab, playerUsingAbility.transform.position, playerUsingAbility.transform.rotation/*Quaternion.Euler(new Vector3(0,0,0))*/) as Rigidbody2D;
 			Debug.Log (transform);
 			bulletInstance.velocity = new Vector2(shootDirection.x * speed, shootDirection.y * speed);
 

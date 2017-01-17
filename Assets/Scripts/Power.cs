@@ -50,7 +50,7 @@ public abstract class Power : MonoBehaviour {
 			isOnCooldown = false;
 		}
 
-	public virtual void use (){
+	public virtual void use (Player playerUsingAbility){
 		
 	}
 

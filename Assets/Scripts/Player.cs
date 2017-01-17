@@ -20,11 +20,7 @@ public class Player : MonoBehaviour {
 		foreach(Power p in powers){//If a hotkey is pressed, select that power.
 			if (Input.GetKeyDown (p.key)) {
 				p.button.onClick.Invoke ();
-				selected.sel.enabled = false;
-				selected.icon.enabled = true;
-				selected = p;
-				selected.sel.enabled = true;
-				selected.icon.enabled = true;//Move this back on top.
+
 			}
 		}
 			
@@ -34,7 +30,7 @@ public class Player : MonoBehaviour {
 			    panel.GetComponent<RectTransform> (), 
 			    Input.mousePosition, 
 			    Camera.main)) {
-			selected.use ();
+			selected.use (this);
 		}
 	}
 }
