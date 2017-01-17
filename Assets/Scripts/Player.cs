@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class Player : MonoBehaviour {
+public class Player : Entity {
 
 	public GameObject panel;
 	static int numPowers = 2;
