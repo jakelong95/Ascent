@@ -10,6 +10,9 @@ public abstract class Power : MonoBehaviour {
 	public float cooldownDuration;
 	public float distance = 10.0f;
 
+	public const int DAMAGE_LOW = 5;
+
+
 
 	protected bool isOnCooldown = false;
 

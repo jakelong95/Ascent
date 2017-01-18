@@ -26,13 +26,15 @@ using UnityEngine.UI;
 			shootDirection = shootDirection-playerUsingAbility.transform.position;
 			//...instantiating the rocket
 			Rigidbody2D bulletInstance = Instantiate(bulletFab, playerUsingAbility.transform.position, playerUsingAbility.transform.rotation/*Quaternion.Euler(new Vector3(0,0,0))*/) as Rigidbody2D;
-			Debug.Log (transform);
 			bulletInstance.velocity = new Vector2(shootDirection.x * speed, shootDirection.y * speed);
+
+			//Don't hit yourself with that bullet!
+			Physics2D.IgnoreCollision (bulletInstance.GetComponent<Collider2D> (), playerUsingAbility.GetComponent<Collider2D> ());
 
 
 		}
 	}
-
+		
 	
 	// Update is called once per frame
 	void Update () {

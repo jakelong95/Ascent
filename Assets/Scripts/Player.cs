@@ -11,6 +11,7 @@ public class Player : Entity {
 
 	// Use this for initialization
 	void Start () {
+		hitPoints = 10;
 		selected = powers [0];
 		//TODO hide all but first power from displaying on screen
 	}
