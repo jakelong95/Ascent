@@ -13,7 +13,8 @@ public class Bullet : MonoBehaviour {
 	
 	}
 
-	void onBecomeInvisible(){
+	//Delete bullets that go offscreen.
+	void OnBecameInvisible(){
 		Destroy(gameObject);
 	}
 }
