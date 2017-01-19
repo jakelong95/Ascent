@@ -3,27 +3,21 @@ using System.Collections;
 
 public abstract class Entity : MonoBehaviour {
 
-	public int hitPoints {get; set;}
+	public float hitPoints {get; set;}
 
-	public void takeDamage(int damage){
+	public void takeDamage(float damage){
+		Debug.Log (hitPoints);
 		this.hitPoints -= damage;
+		if (this.hitPoints <= 0) {
+			Destroy (gameObject);
+		}
 	}
 
 	// Use this for initialization
 	void Start () {
 	
 	}
-
-	void OnTriggerEnter2D(Collider2D col){
-		Debug.Log ("Collision detected");
-		if (col.gameObject.tag.Equals("Attack")) {
-
-			//TODO take damage.
-			Debug.Log("Hit");
-			Destroy (col.gameObject);
-		}
-	}
-
+		
 	// Update is called once per frame
 	void Update () {
 	
