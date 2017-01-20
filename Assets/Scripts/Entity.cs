@@ -6,6 +6,7 @@ public abstract class Entity : MonoBehaviour {
 	public Texture2D healthbar;
 	public float hitPoints {get; set;}
 	protected float maxHealth;
+	protected float healthBarHeight = 5.0f;
 
 	public void takeDamage(float damage){
 		this.hitPoints -= damage;
