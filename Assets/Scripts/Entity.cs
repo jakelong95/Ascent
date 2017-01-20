@@ -3,10 +3,11 @@ using System.Collections;
 
 public abstract class Entity : MonoBehaviour {
 
+	public Texture2D healthbar;
 	public float hitPoints {get; set;}
+	protected float maxHealth;
 
 	public void takeDamage(float damage){
-		Debug.Log (hitPoints);
 		this.hitPoints -= damage;
 		if (this.hitPoints <= 0) {
 			Destroy (gameObject);
@@ -15,11 +16,14 @@ public abstract class Entity : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
 	}
 		
 	// Update is called once per frame
 	void Update () {
-	
+		Debug.Log (healthbar);
+	}
+		
+	protected void OnGUI(){
+		//GUI.DrawTexture(new Rect(transform.position.x, transform.position.y , hitPoints*10, 50), healthbar);
 	}
 }
