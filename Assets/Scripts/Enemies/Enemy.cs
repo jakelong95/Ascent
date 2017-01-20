@@ -4,6 +4,7 @@ using System.Collections;
 public class Enemy : Entity {
 	public static int NORMAL_POINTS = 10;
 
+	protected int speed = 1;
 	int points = NORMAL_POINTS; //How many points the thing is worth.
 
 	// Use this for initialization

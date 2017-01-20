@@ -16,7 +16,9 @@ public class DiamondEnemy : Enemy {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		//Move to player
+		float range = Vector2.Distance(new Vector2(this.transform.position.x, this.transform.position.y), new Vector2(player.transform.position.x, player.transform.position.y));
+		transform.Translate(Vector2.MoveTowards (new Vector2(this.transform.position.x, this.transform.position.y), new Vector2(player.transform.position.x, player.transform.position.y), range) * speed * Time.deltaTime);
 	}
 
 	//Putting this in Entity doesn't call it for some reason.
