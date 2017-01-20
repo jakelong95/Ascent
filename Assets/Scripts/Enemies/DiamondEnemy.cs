@@ -1,7 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+//These little prickly dudes have basically no health
+//And "attack" by running into you. Maybe their attack
+//Will stun you or push you back or something.
 public class DiamondEnemy : Enemy {
+
+	public Player player; //Target to appraoch. Could have a list of players in GameManager, but this works for now.
 
 	// Use this for initialization
 	void Start () {
@@ -15,6 +21,7 @@ public class DiamondEnemy : Enemy {
 
 	//Putting this in Entity doesn't call it for some reason.
 	void OnGUI(){
+		//Health bar
 		GUI.DrawTexture(new Rect(Camera.main.WorldToScreenPoint(this.transform.position).x - hitPoints * 10 /2, Camera.main.WorldToScreenPoint(this.transform.position).y - 15.0f, hitPoints*10, healthBarHeight), healthbar);
 	}
 }

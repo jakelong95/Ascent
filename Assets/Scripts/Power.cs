@@ -53,6 +53,8 @@ public abstract class Power : MonoBehaviour {
 			isOnCooldown = false;
 		}
 
+	//If this took in a locatoin, we could use the same power for enemies as well.
+	//As it stands we grab moues coordinates in this function.
 	public virtual void use (Player playerUsingAbility){
 		
 	}

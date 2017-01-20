@@ -34,4 +34,9 @@ public class Player : Entity {
 			selected.use (this);
 		}
 	}
+
+	//Putting this in Entity doesn't call it for some reason.
+	void OnGUI(){
+		GUI.DrawTexture(new Rect(Camera.main.WorldToScreenPoint(this.transform.position).x - hitPoints * 10 /2, Camera.main.WorldToScreenPoint(this.transform.position).y - 15.0f, hitPoints*10, healthBarHeight), healthbar);
+	}
 }

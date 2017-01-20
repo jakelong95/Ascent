@@ -24,7 +24,7 @@ public abstract class Entity : MonoBehaviour {
 		Debug.Log (healthbar);
 	}
 		
-	protected void OnGUI(){
+	void OnGUI(){
 		//GUI.DrawTexture(new Rect(transform.position.x, transform.position.y , hitPoints*10, 50), healthbar);
 	}
 }
