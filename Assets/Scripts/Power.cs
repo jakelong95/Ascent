@@ -30,6 +30,9 @@ public abstract class Power : MonoBehaviour {
 		}
 	}
 
+    //Some powers have things that need to happen whenever they are active (drawinga  cone of fire, etc)
+    public virtual void IfActivePower() { }
+
 	protected virtual void onButtonClick() {
 			//Switch the selected icon.
 			Player.selected.sel.enabled = false;

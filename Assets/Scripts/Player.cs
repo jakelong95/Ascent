@@ -33,6 +33,8 @@ public class Player : Entity {
 			    Camera.main)) {
 			selected.use (this);
 		}
+
+        selected.IfActivePower();
 	}
 
 	//Putting this in Entity doesn't call it for some reason.
