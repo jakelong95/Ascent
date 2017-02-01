@@ -39,9 +39,12 @@ public class CollisionCone : MonoBehaviour
         camrot = Camera.main.transform.rotation.z;
 
 
-        transform.position = parentPos + new Vector3(0,0,15);
-        transform.position = parentObject.position;
+       // transform.position = parentPos + new Vector3(0,0,15);
+        Vector3 diff = transform.position - parentObject.position;//Shift to new position
+        transform.position -= diff;
         transform.rotation = Quaternion.Euler(0, 0, angle);
+        diff = Quaternion.Euler(0, 0, angle) * diff;//Adjust the shit
+        transform.position += diff;
 
       // Vector3 myvec = RotatePointAroundPivot(myPo, parentPos, new Vector3(0, 0, angle));
       // transform.rotation = new Quaternion(myvec.x, myvec.y, myvec.z, 0);
