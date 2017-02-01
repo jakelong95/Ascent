@@ -38,6 +38,11 @@ public class CollisionCone : MonoBehaviour
         angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90;
         camrot = Camera.main.transform.rotation.z;
 
+
+        transform.position = parentPos + new Vector3(0,0,15);
+        transform.position = parentObject.position;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
+
       // Vector3 myvec = RotatePointAroundPivot(myPo, parentPos, new Vector3(0, 0, angle));
       // transform.rotation = new Quaternion(myvec.x, myvec.y, myvec.z, 0);
       //
@@ -88,7 +93,7 @@ public class CollisionCone : MonoBehaviour
 
         //  while(Mathf.Abs(rotated - angle) > closeEnoughDegrees)
         //  {
-             transform.RotateAround(parentObject.position, new Vector3(0, 0, 1),  angle);
+         //    transform.RotateAround(parentObject.position, new Vector3(0, 0, 1),  angle);
         //      rotated += 5;
         //  }
         //
