@@ -20,10 +20,14 @@ public class CollisionCone : MonoBehaviour {
         mousePos.x = mousePos.x - parentPos.x;
         mousePos.y = mousePos.y - parentPos.y;
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90;
-        Vector3 oldPos = transform.position;
-        transform.position = parentObject.position;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        transform.position = oldPos;
+
+
+        //Vector3 oldPos = transform.position;
+        //transform.position = parentObject.position;
+
+        //transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        
+        //transform.position = oldPos;
 
 
        // float angle = Mathf.Rad2Deg * Mathf.Atan(Mathf.Abs(Input.mousePosition.y - parentObject.transform.position.y) / Mathf.Abs(Input.mousePosition.x - parentObject.transform.position.y));
@@ -35,7 +39,7 @@ public class CollisionCone : MonoBehaviour {
 
         //transform.position = parentObject.position;
         //transform.rotation = Quaternion.Euler(0, 0, angle);
-        //transform.RotateAround(parentObject.position, new Vector3(0, 0, 1), angle);
+        transform.RotateAround(parentObject.position, new Vector3(0, 0, 1), angle);
        // Debug.Log(angle);
         //transform.Rotate(angleOffset);
        // transform.position = parentObject.position + offset;
