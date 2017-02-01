@@ -14,6 +14,8 @@ public class CollisionCone : MonoBehaviour
     public float targAngle = 0f;
     public float rSpeed = 1.0f;
     public float rDistance = 1.0f;
+    public float angle;
+    public float camrot;
 
     // Use this for initialization
     void Start()
@@ -33,7 +35,12 @@ public class CollisionCone : MonoBehaviour
 
         mousePos.x = mousePos.x - parentPos.x;
         mousePos.y = mousePos.y - parentPos.y;
-        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90;
+        angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90;
+        camrot = Camera.main.transform.rotation.z;
+
+      // Vector3 myvec = RotatePointAroundPivot(myPo, parentPos, new Vector3(0, 0, angle));
+      // transform.rotation = new Quaternion(myvec.x, myvec.y, myvec.z, 0);
+      //
 
 
 
@@ -41,14 +48,14 @@ public class CollisionCone : MonoBehaviour
         //float rotated = 0;
         //
 
-        Vector3 diff = myPo - parentPos;
-
-        float currAngle = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg - 90;
-
-        if (Mathf.Abs(currAngle - angle) > closeEnoughDegrees)
-        {
-            transform.RotateAround(parentObject.position, new Vector3(0, 0, 1), angle);
-        }
+   //  Vector3 diff = myPo - parentPos;
+   //
+   //  float currAngle = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg - 90;
+   //
+   //  if (Mathf.Abs(currAngle - angle) > closeEnoughDegrees)
+   //  {
+   //      transform.RotateAround(parentObject.position, new Vector3(0, 0, 1), angle);
+   //  }
 
 
         // transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, new Vector3(0, 0, angle), Time.deltaTime);
@@ -73,7 +80,7 @@ public class CollisionCone : MonoBehaviour
         //Vector3 oldPos = transform.position;
         //transform.position = parentObject.position;
 
-        // transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        //transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
         //transform.position = oldPos;
         //Vector3.RotateTowards(transform.position, new Vector3(0,0,angle), 10,10)
@@ -81,7 +88,7 @@ public class CollisionCone : MonoBehaviour
 
         //  while(Mathf.Abs(rotated - angle) > closeEnoughDegrees)
         //  {
-        //      transform.RotateAround(parentObject.position, new Vector3(0, 0, 1),  angle);
+             transform.RotateAround(parentObject.position, new Vector3(0, 0, 1),  angle);
         //      rotated += 5;
         //  }
         //
@@ -137,5 +144,10 @@ public class CollisionCone : MonoBehaviour
     bool HasMouseMoved()
     {
         return (Input.GetAxis("Mouse X") != 0) || (Input.GetAxis("Mouse Y") != 0);
+    }
+
+    public Vector3 RotatePointAroundPivot(Vector3 point, Vector3 pivot, Vector3 angles)
+    {
+        return Quaternion.Euler(angles) * (point - pivot) + pivot;
     }
 }
