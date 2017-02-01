@@ -13,7 +13,33 @@ public class CollisionCone : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = parentObject.position + offset;
-        transform.rotation = new Quaternion(0, 0, 0, 0);
+
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 parentPos = Camera.main.WorldToScreenPoint(parentObject.transform.position);
+        
+        mousePos.x = mousePos.x - parentPos.x;
+        mousePos.y = mousePos.y - parentPos.y;
+        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+
+       // float angle = Mathf.Rad2Deg * Mathf.Atan(Mathf.Abs(Input.mousePosition.y - parentObject.transform.position.y) / Mathf.Abs(Input.mousePosition.x - parentObject.transform.position.y));
+
+
+        //angle = 10;
+
+        //    Vector3 angleOffset = new Vector3(0, 0, angle);
+
+        //transform.position = parentObject.position;
+
+        //transform.rotation = Quaternion.Euler(0, 0, angle);
+        //transform.RotateAround(parentObject.position, new Vector3(0, 0, 1), angle);
+        Debug.Log(angle);
+        //transform.Rotate(angleOffset);
+       // transform.position = parentObject.position + offset;
+        //transform.rotation = new Quaternion(0, 0, 0, 0);
+       
+       // transform.RotateAround(parentObject.position, angle);
+        //   transform.position = parentObject.position +  angleOffset;
 	}
 }
